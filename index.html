@@ -1,471 +1,666 @@
-  <!DOCTYPE html>
-  <html lang="ml">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>കുമരനെല്ലൂർ വായിക്കപ്പെടുന്നു</title>
+<!DOCTYPE html>
+<html lang="ml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>കുമരനെല്ലൂരിനെ വായിക്കുന്നു</title>
 
-      <!-- Tailwind CSS -->
-      <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-      <!-- Google Fonts: Manjari for Malayalam & Inter for English -->
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Inter:wght@400;700&display=swap"
-        rel="stylesheet"
-      />
+    <!-- Google Fonts: Manjari for Malayalam & Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-      <!-- Custom Styles and Animations -->
-      <style>
-        /* Apply custom fonts */
-        body {
-          font-family: "Manjari", sans-serif;
-          background-color: #fffcf5; /* A warm off-white, like old paper */
-          color: #4c3d3d; /* A deep, earthy brown for text */
-        }
+    <!-- Custom Styles and Animations -->
+    <style>
+      /* Apply custom fonts */
+      body {
+        font-family: "Manjari", sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        background-image: linear-gradient(
+            135deg,
+            rgba(192, 107, 62, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            225deg,
+            rgba(192, 107, 62, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            315deg,
+            rgba(192, 107, 62, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(45deg, rgba(192, 107, 62, 0.05) 25%, transparent 25%);
+        background-position: -40px 0, -40px 0, 0 0, 0 0;
+        background-size: 80px 80px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Manjari", sans-serif;
+        font-weight: 700;
+      }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          font-family: "Manjari", sans-serif;
-          font-weight: 700;
-        }
+      /* Traditional Kerala Mural Art inspired colors */
+      :root {
+        --primary-color: #c06b3e; /* A terracotta/saffron shade */
+        --secondary-color: #4a5d23; /* A deep olive green */
+        --accent-color: #b48811; /* A dull gold */
+        --bg-color: #fffcf5;
+        --text-color: #4c3d3d;
+      }
 
-        /* Traditional Kerala Mural Art inspired colors */
-        :root {
-          --primary-color: #c06b3e; /* A terracotta/saffron shade */
-          --secondary-color: #4a5d23; /* A deep olive green */
-          --accent-color: #b48811; /* A dull gold */
-          --bg-color: #fffcf5;
-          --text-color: #4c3d3d;
-        }
+      /* Hero section styling */
+      .hero-section {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+          ),
+          url("https://ayyoobigirlsvillage.github.io/kumaralanur/images/hero-background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Parallax effect */
+      }
 
-        /* Hero section styling */
-        .hero-section {
-          background-image: linear-gradient(
-              rgba(0, 0, 0, 0.4),
-              rgba(0, 0, 0, 0.4)
-            ),
-            url("https://ayyoobigirlsvillage.github.io/kumaralanur/images/hero-background.jpg");
-          background-size: cover;
-          background-position: center;
-          background-attachment: fixed; /* Parallax effect */
-        }
+      .hero-title {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        animation: fadeInDown 1.5s 0.5s ease-out backwards;
+      }
 
-        .hero-title {
-          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-        }
+      .hero-section .font-light {
+        animation: fadeInUp 1.5s 1s ease-out backwards;
+      }
 
-        /* Scroll-reveal animations */
-        .reveal {
+      @keyframes fadeInDown {
+        from {
           opacity: 0;
-          transform: translateY(50px);
-          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+          transform: translateY(-40px);
         }
-
-        .reveal.visible {
+        to {
           opacity: 1;
           transform: translateY(0);
         }
+      }
 
-        /* Card styles for writers */
-        .writer-card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
         }
-        .writer-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-            0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        /* Book cover styles */
-        .book-cover {
-          transition: transform 0.3s ease;
-        }
-        .book-cover:hover {
-          transform: scale(1.05);
-        }
-
-        /* Modal styling */
-        .modal {
-          transition: opacity 0.3s ease-in-out;
-        }
-        .modal-content {
-          transition: transform 0.3s ease-in-out;
-          transform: translateY(50px);
-        }
-        .modal.open .modal-content {
+        to {
+          opacity: 1;
           transform: translateY(0);
         }
+      }
 
-        /* Custom border with traditional pattern feel */
-        .kerala-border {
-          border: 2px solid var(--primary-color);
-          border-image: linear-gradient(
-              to right,
-              var(--primary-color),
-              var(--accent-color)
-            )
-            1;
-        }
+      /* Scroll-reveal animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
 
-        /* Accordion for author works */
-        .accordion-content {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.5s ease-in-out;
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Card styles for writers */
+      .writer-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .writer-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      /* Book cover styles */
+      .book-cover {
+        transition: transform 0.3s ease;
+      }
+      .book-cover:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Modal styling */
+      .modal {
+        transition: opacity 0.3s ease-in-out;
+      }
+      .modal-content {
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(50px);
+      }
+      .modal.open .modal-content {
+        transform: translateY(0);
+      }
+
+      /* Custom border with traditional pattern feel */
+      .kerala-border {
+        border: 2px solid var(--primary-color);
+        border-image: linear-gradient(
+            to right,
+            var(--primary-color),
+            var(--accent-color)
+          )
+          1;
+      }
+
+      /* Accordion for author works */
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+      }
+
+      /* Animated gradient for footer */
+      .footer-animated {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-color),
+          #6a8d23,
+          var(--secondary-color)
+        );
+        background-size: 200% 200%;
+        animation: gradient-animation 15s ease infinite;
+      }
+
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 50%;
         }
-      </style>
-    </head>
-    <body class="bg-[var(--bg-color)] text-[var(--text-color)]">
-      <!-- Hero Section -->
-      <section
-        class="hero-section h-screen w-full flex flex-col items-center justify-center text-white p-4"
-      >
-        <div class="text-center">
-          <h1
-            class="hero-title text-5xl md:text-8xl lg:text-9xl font-bold leading-tight"
-            style="line-height: 1.2"
-          >
-            കുമരനെല്ലൂർ<br />വായിക്കപ്പെടുന്നു
-          </h1>
-          <p class="mt-4 text-xl md:text-2xl font-light">
-            അക്ഷരങ്ങളുടെ ലോകത്തേക്കൊരു യാത്ര
-          </p>
-        </div>
-        <div class="absolute bottom-10 animate-bounce">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Pattern for writer cards */
+      .writer-card-pattern {
+        background-color: var(--bg-color);
+        background-image: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 252, 245, 0.8) 70%,
+          rgba(255, 252, 245, 0) 100%
+        );
+      }
+    </style>
+  </head>
+  <body class="bg-[var(--bg-color)] text-[var(--text-color)]">
+    <!-- Hero Section -->
+    <section
+      class="hero-section h-screen w-full flex flex-col items-center justify-center text-white p-4"
+    >
+      <div class="text-center">
+        <h1
+          class="hero-title text-5xl md:text-8xl lg:text-9xl font-bold leading-tight"
+          style="line-height: 1.2"
+        >
+          കുമരനെല്ലൂരിനെ<br />വായിക്കുന്നു
+        </h1>
+        <p class="mt-4 text-xl md:text-2xl font-light">
+          അക്ഷരങ്ങളുടെ ലോകത്തേക്കൊരു യാത്ര
+        </p>
+      </div>
+      <div class="absolute bottom-10 animate-bounce">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-16 md:py-24">
+      <!-- Section 01: Introduction -->
+      <section class="reveal text-center max-w-4xl mx-auto mb-20">
+        <h2 class="text-3xl md:text-4xl text-primary-color mb-6">
+          മലയാളത്തിൻ്റെ ഇതിഹാസ ഭൂമി
+        </h2>
+        <p class="text-lg md:text-xl leading-relaxed">
+          കുമരനെല്ലൂർ നിരവധി പ്രതിഭകളെ ഗർഭം ചുമന്ന ദേശം. അക്ഷരങ്ങൾക്ക് നിറം
+          പകർന്നു നൽകി മലയാളത്തിന്റെ ഇതിഹാസമായി മാറിയ എം.ടി യും അക്കിത്തവും, പി
+          സുരേന്ദ്രനും നടന്നു പോയ വഴികൾ. ലോകവായനയിൽ ഇടം പിടിച്ച നിരവധി
+          അവാർഡുകൾക്ക് ജന്മം നൽകിയ മണ്ണ്.
+        </p>
+<p class="text-lg md:text-xl leading-relaxed mt-4">
+          ഈ മണ്ണിന്റെ സാഹിത്യപരമായ പാരമ്പര്യം വെളിപ്പെടുത്തുന്ന ഈ വരികൾ, കുമരനെല്ലൂരിന്റെ സമൃദ്ധമായ സാംസ്കാരിക ഇടപെടലുകളുടെ സാക്ഷ്യപത്രമാണ്. മലയാള സാഹിത്യത്തെ ആഴത്തിൽ സ്വാധീനിച്ച നിരവധി കൃതികൾക്കും കൃത്തുക്കൾക്കും ഈ പ്രദേശം ആധാരമായിട്ടുണ്ട്. വായനയുടെ ശക്തിയിൽ വിശ്വസിച്ച ഈ മണ്ണിന്റെ പുത്രന്മാരുടെയും പുത്രിമാരുടെയും സംഭാവനകൾ, ഭാഷയുടെ വളർച്ചയ്ക്കും സാമൂഹിക ബോധനത്തിനും വലിയ വഴികാട്ടികളായി മാറിയിട്ടുണ്ട്.
+        </p>
+        <p class="text-lg md:text-xl leading-relaxed mt-4">
+          ഇതിന്റെ തുടർച്ചയായി, ലോകവായനയുടെ പശ്ചാത്തലത്തിൽ വായനാപ്രവർത്തനങ്ങൾക്കും പുസ്തകമനുഷ്യർക്കും അർപ്പിക്കുന്ന ബഹുമാനമായാണ് ഈ വെർ ച്വൽ പുസ്തക പ്രദർശനം സംഘടിപ്പിക്കുന്നത്. ഈ പ്രദർശനം, പുസ്തകങ്ങളുടെ ഉള്ളടക്കത്തെക്കുറിച്ചുള്ള വിശദമായ വീക്ഷണങ്ങളും, എഴുത്തുകാരുടെ ദർശനങ്ങളുടെയും സന്ദേശങ്ങളുടെയും ആഴത്തിലുള്ള പഠനവുമാണ് ലക്ഷ്യമിടുന്നത്. ഓരോ പുസ്തകവും ഓരോ ലോകം പോലെ നിറഞ്ഞിരിക്കുന്നു—വായനക്കാരനെ ആഗ്രഹത്തിന്റെ, ആലോചനയുടെ, ചിന്തയുടെ, പ്രതീക്ഷയുടെ വഴികളിലേക്കു നയിക്കുന്ന ലോകം.
+        </p>
+      </section>
+
+      <!-- Section 02: Book Covers Gallery -->
+      <section class="reveal mb-20">
+        <h2 class="text-3xl md:text-4xl text-center text-primary-color mb-10">
+          തിരഞ്ഞെടുത്ത പുസ്തകങ്ങൾ
+        </h2>
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+        >
+          <!-- M.T. Vasudevan Nair Books -->
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-manju.jpg"
+            alt="Book Cover for Manju"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-nalukettu.jpg"
+            alt="Book Cover for Nalukettu"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-arabipponnu.jpg"
+            alt="Book Cover for Arabipponnu"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-kalam.jpg"
+            alt="Book Cover for Kalam"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-vilapayathra.jpg"
+            alt="Book Cover for Vilapayathra"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
+          <!-- Akkitham Books -->
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-vennakkallinte-katha.jpg"
+            alt="Book Cover for Vennakkallinte Katha"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-manasakshiyude-pookkal.jpg"
+            alt="Book Cover for Manasakshiyude Pookkal"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-irupatham.jpg"
+            alt="Book Cover for Irupatham Noottandinte Ithihasam"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-kalikkottilil.jpg"
+            alt="Book Cover for Kalikkottilil"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-itinju-polinja-lokam.jpg"
+            alt="Book Cover for Itinju Polinja Lokam"
+            class="book-cover rounded-lg shadow-lg w-full"
+          />
         </div>
       </section>
 
-      <main class="container mx-auto px-6 py-16 md:py-24">
-        <!-- Section 01: Introduction -->
-        <section class="reveal text-center max-w-4xl mx-auto mb-20">
-          <h2 class="text-3xl md:text-4xl text-primary-color mb-6">
-            മലയാളത്തിൻ്റെ ഇതിഹാസ ഭൂമി
-          </h2>
-          <p class="text-lg md:text-xl leading-relaxed">
-            കുമരനെല്ലൂർ നിരവധി പ്രതിഭകളെ ഗർഭം ചുമന്ന ദേശം. അക്ഷരങ്ങൾക്ക് നിറം
-            പകർന്നു നൽകി മലയാളത്തിന്റെ ഇതിഹാസമായി മാറിയ എം.ടി യും അക്കിത്തവും, പി
-            സുരേന്ദ്രനും നടന്നു പോയ വഴികൾ. ലോകവായനയിൽ ഇടം പിടിച്ച നിരവധി
-            അവാർഡുകൾക്ക് ജന്മം നൽകിയ മണ്ണ്.
-          </p>
-        </section>
-
-        <!-- Section 02: Book Covers Gallery -->
-        <section class="reveal mb-20">
-          <h2 class="text-3xl md:text-4xl text-center text-primary-color mb-10">
-            തിരഞ്ഞെടുത്ത പുസ്തകങ്ങൾ
-          </h2>
+      <!-- Section 03 & 04: Writers -->
+      <section class="reveal mb-20">
+        <h2 class="text-3xl md:text-4xl text-center text-primary-color mb-10">
+          ഇതിഹാസങ്ങളുടെ ശില്പികൾ
+        </h2>
+        <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          <!-- Writer 1: MT -->
           <div
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+            id="writer-mt"
+            class="writer-card cursor-pointer writer-card-pattern p-6 rounded-xl shadow-lg border border-gray-200 text-center"
           >
-            <!-- Placeholder book covers -->
             <img
-              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-nalukettu.jpg"
-              alt="Book Cover for Nalukettu"
-              class="book-cover rounded-lg shadow-lg w-full"
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-mt.jpg"
+              alt="എം.ടി വാസുദേവൻ നായർ"
+              class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-accent-color"
             />
-            <img
-              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-randamoozham.jpg"
-              alt="Book Cover for Randamoozham"
-              class="book-cover rounded-lg shadow-lg w-full"
-            />
-            <img
-              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-irupatham.jpg"
-              alt="Book Cover for Irupatham Noottandinte Ithihasam"
-              class="book-cover rounded-lg shadow-lg w-full"
-            />
-            <img
-              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-asuravithu.jpg"
-              alt="Book Cover for Asuravithu"
-              class="book-cover rounded-lg shadow-lg w-full"
-            />
-            <img
-              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-manju.jpg"
-              alt="Book Cover for Manju"
-              class="book-cover rounded-lg shadow-lg w-full"
-            />
-            <img
-              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-balidarsanam.jpg"
-              alt="Book Cover"
-              class="book-cover rounded-lg shadow-lg w-full"
-            />
+            <h3 class="text-2xl font-bold text-secondary-color mb-2">
+              എം.ടി വാസുദേവൻ നായർ
+            </h3>
+            <p class="mb-4">
+              മലയാള സാഹിത്യത്തിലെ ഇതിഹാസകാരൻ. നോവലിസ്റ്റ്, തിരക്കഥാകൃത്ത്,
+              സംവിധായകൻ എന്നീ നിലകളില്‍ പ്രശസ്തന്‍.
+            </p>
+            <span class="text-accent-color text-xl font-bold flex items-center justify-center mt-4">
+              Click here
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
           </div>
-        </section>
 
-        <!-- Section 03 & 04: Writers -->
-        <section class="reveal mb-20">
-          <h2 class="text-3xl md:text-4xl text-center text-primary-color mb-10">
-            ഇതിഹാസങ്ങളുടെ ശില്പികൾ
-          </h2>
-          <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-            <!-- Writer 1: MT -->
-            <div
-              id="writer-mt"
-              class="writer-card cursor-pointer bg-white p-6 rounded-xl shadow-lg border border-gray-200 text-center"
-            >
-              <img
-                src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-mt.jpg"
-                alt="എം.ടി വാസുദേവൻ നായർ"
-                class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-accent-color"
-              />
-              <h3 class="text-2xl font-bold text-secondary-color mb-2">
-                എം.ടി വാസുദേവൻ നായർ
-              </h3>
-              <p class="mb-4">
-                മലയാള സാഹിത്യത്തിലെ ഇതിഹാസകാരൻ. നോവലിസ്റ്റ്, തിരക്കഥാകൃത്ത്,
-                സംവിധായകൻ എന്നീ നിലകളില്‍ പ്രശസ്തന്‍.
-              </p>
-              <span class="text-accent-color font-bold"
-                >കൂടുതലറിയാൻ ക്ലിക്ക് ചെയ്യുക</span
-              >
-            </div>
-
-            <!-- Writer 2: Akkitham -->
-            <div
-              id="writer-akkitham"
-              class="writer-card cursor-pointer bg-white p-6 rounded-xl shadow-lg border border-gray-200 text-center"
-            >
-              <img
-                src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-akkitham.jpg"
-                alt="അക്കിത്തം അച്യുതൻ നമ്പൂതിരി"
-                class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-accent-color"
-              />
-              <h3 class="text-2xl font-bold text-secondary-color mb-2">
-                അക്കിത്തം അച്യുതൻ നമ്പൂതിരി
-              </h3>
-              <p class="mb-4">
-                ജ്ഞാനപീഠം പുരസ്കാര ജേതാവായ മഹാനായ കവി. മാനവികതയുടെയും
-                സ്നേഹത്തിൻ്റെയും സന്ദേശങ്ങൾ പകർന്ന കവിതകൾ.
-              </p>
-              <span class="text-accent-color font-bold"
-                >കൂടുതലറിയാൻ ക്ലിക്ക് ചെയ്യുക</span
-              >
-            </div>
+          <!-- Writer 2: Akkitham -->
+          <div
+            id="writer-akkitham"
+            class="writer-card cursor-pointer writer-card-pattern p-6 rounded-xl shadow-lg border border-gray-200 text-center"
+          >
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-akkitham.jpg"
+              alt="അക്കിത്തം അച്യുതൻ നമ്പൂതിരി"
+              class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-accent-color"
+            />
+            <h3 class="text-2xl font-bold text-secondary-color mb-2">
+              അക്കിത്തം അച്യുതൻ നമ്പൂതിരി
+            </h3>
+            <p class="mb-4">
+              ജ്ഞാനപീഠം പുരസ്കാര ജേതാവായ മഹാനായ കവി. മാനവികതയുടെയും
+              സ്നേഹത്തിൻ്റെയും സന്ദേശങ്ങൾ പകർന്ന കവിതകൾ.
+            </p>
+            <span class="text-accent-color text-xl font-bold flex items-center justify-center mt-4">
+              Click here
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
           </div>
-        </section>
-
-        <!-- Section 05: Summary -->
-        <section class="reveal text-center max-w-4xl mx-auto mb-20">
-          <h2 class="text-3xl md:text-4xl text-primary-color mb-6">
-            വായനയുടെ ലോകം
-          </h2>
-          <p class="text-lg md:text-xl leading-relaxed">
-            തിരഞ്ഞെടുക്കുന്ന പുസ്തകത്തെ കുറിച്ചുള്ള സംക്ഷിപ്തം. കഥയുടെ, കവിതയുടെ,
-            നോവലിൻ്റെ ഉൾക്കാമ്പ് തൊട്ടറിഞ്ഞ്, ഓരോ വരിയിലും ഒളിപ്പിച്ചുവെച്ച
-            ജീവിതഗന്ധിയായ അനുഭവങ്ങളെ ഞങ്ങൾ നിങ്ങൾക്കായി പങ്കുവെക്കുന്നു.
-          </p>
-        </section>
-      </main>
-
-      <!-- Section 06 & 07: Footer -->
-      <footer class="bg-secondary-color text-white py-12">
-        <div class="container mx-auto text-center px-6">
-          <h3 class="text-2xl text-accent-color mb-4">നന്ദി</h3>
-          <p class="mb-6 max-w-2xl mx-auto">
-            ജൂൺ 19 വായനാ ദിനത്തിൽ അയ്യൂബി ഗേൾസ് വില്ലേജിനൊപ്പം ഈ രചനയുടെ ലോകത്ത്
-            ഒന്നിച്ചു നടന്നതിന്, നിങ്ങളുടെ വായനക്ക് കടപ്പാടുകൾ.
-          </p>
-          <div class="border-t border-accent-color w-1/4 mx-auto my-4"></div>
-          <p class="text-lg font-bold">Ayyoobi Girls Village</p>
         </div>
-      </footer>
+      </section>
 
-      <!-- Modal for Writer Details -->
+      <!-- Section 05: Summary -->
+      <section class="reveal text-center max-w-4xl mx-auto mb-20">
+        <h2 class="text-3xl md:text-4xl text-primary-color mb-6">
+          വായനയുടെ ലോകം
+        </h2>
+        <p class="text-lg md:text-xl leading-relaxed">
+          തിരഞ്ഞെടുക്കുന്ന പുസ്തകത്തെ കുറിച്ചുള്ള സംക്ഷിപ്തം. കഥയുടെ, കവിതയുടെ,
+          നോവലിൻ്റെ ഉൾക്കാമ്പ് തൊട്ടറിഞ്ഞ്, ഓരോ വരിയിലും ഒളിപ്പിച്ചുവെച്ച
+          ജീവിതഗന്ധിയായ അനുഭവങ്ങളെ ഞങ്ങൾ നിങ്ങൾക്കായി പങ്കുവെക്കുന്നു.
+        </p>
+      </section>
+    </main>
+
+    <!-- Section 06 & 07: Footer -->
+    <footer class="footer-animated text-white py-12">
+      <div class="container mx-auto text-center px-6">
+        <h3 class="text-2xl text-accent-color mb-4">നന്ദി</h3>
+        <p class="mb-6 max-w-2xl mx-auto text-xl leading-relaxed">
+          ജൂൺ 19 വായനാ ദിനത്തിൽ അയ്യൂബി ഗേൾസ് വില്ലേജിനൊപ്പം ഈ രചനയുടെ ലോകത്ത്
+          ഒന്നിച്ചു നടന്നതിന് ഹൃദയം നിറഞ്ഞ നന്ദി! നിങ്ങളുടെ വിലയേറിയ വായനയ്ക്കും
+          പിന്തുണയ്ക്കും ഞങ്ങൾ കടപ്പെട്ടിരിക്കുന്നു. വീണ്ടും കാണാം!
+        </p>
+        <p class="mb-6 max-w-2xl mx-auto text-lg leading-relaxed">
+          ഈ വെർച്വൽ പുസ്തക പ്രദർശനം കുമരനെല്ലൂരിന്റെ സാഹിത്യ പാരമ്പര്യത്തെയും
+          അവിടുത്തെ പ്രതിഭകളെയും ആദരിക്കുന്നതിനുള്ള ഞങ്ങളുടെ എളിയ ശ്രമമാണ്.
+          വായനയുടെ ലോകത്തേക്ക് കൂടുതൽ പേരെ ആകർഷിക്കാനും അറിവ് പങ്കുവെക്കാനും
+          ഇത് സഹായകമാകുമെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു.
+        </p>
+        <div class="border-t border-accent-color w-1/4 mx-auto my-6"></div>
+        <p class="text-2xl md:text-3xl font-extrabold text-accent-color tracking-wide">Ayyoobi Girls Village</p>
+      </div>
+    </footer>
+
+    <!-- Modal for Writer Details -->
+    <div
+      id="writer-modal"
+      class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none"
+    >
       <div
-        id="writer-modal"
-        class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none"
+        class="modal-content bg-[var(--bg-color)] text-[var(--text-color)] rounded-lg shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto kerala-border"
       >
-        <div
-          class="modal-content bg-[var(--bg-color)] text-[var(--text-color)] rounded-lg shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto kerala-border"
-        >
-          <div class="p-6 md:p-8">
-            <!-- Modal Header -->
-            <div class="flex justify-between items-start mb-6">
-              <div class="flex items-center">
-                <img
-                  id="modal-img"
-                  src=""
-                  alt="Writer"
-                  class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-accent-color mr-6"
-                />
-                <div>
-                  <h2
-                    id="modal-name"
-                    class="text-3xl md:text-4xl font-bold text-primary-color"
-                  ></h2>
-                  <p id="modal-bio" class="text-md text-secondary-color"></p>
-                </div>
+        <div class="p-6 md:p-8">
+          <!-- Modal Header -->
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex items-center">
+              <img
+                id="modal-img"
+                src=""
+                alt="Writer"
+                class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-accent-color mr-6"
+              />
+              <div>
+                <h2
+                  id="modal-name"
+                  class="text-3xl md:text-4xl font-bold text-primary-color"
+                ></h2>
+                <p id="modal-bio" class="text-md text-secondary-color"></p>
               </div>
-              <button
-                id="modal-close"
-                class="text-3xl text-text-color hover:text-primary-color"
-              >
-                &times;
-              </button>
             </div>
+            <button
+              id="modal-close"
+              class="text-3xl text-text-color hover:text-primary-color"
+            >
+              &times;
+            </button>
+          </div>
 
-            <!-- Modal Body: Works List -->
-            <div>
-              <h3 class="text-2xl text-secondary-color font-bold mb-4">
-                പ്രധാന കൃതികളും നിരൂപണങ്ങളും
-              </h3>
-              <div id="modal-works" class="space-y-3">
-                <!-- Works will be injected here by JS -->
-              </div>
+          <!-- Modal Body: Works List -->
+          <div>
+            <h3 class="text-2xl text-secondary-color font-bold mb-4">
+              പ്രധാന കൃതികളും നിരൂപണങ്ങളും
+            </h3>
+            <div id="modal-works" class="space-y-3">
+              <!-- Works will be injected here by JS -->
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <script>
-        // --- Data for Writers ---
-        const writersData = {
-          mt: {
-            name: "എം.ടി വാസുദേവൻ നായർ",
-            image: "https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-mt.jpg",
-            bio: "മലയാള സാഹിത്യത്തിലെ ഇതിഹാസകാരൻ.",
-            works: [
-              {
-                title: "നാലുകെട്ട്",
-                review:
-                  "സാമൂഹിക വ്യവസ്ഥിതിയുടെ നേർക്കാഴ്ചയും വ്യക്തിബന്ധങ്ങളുടെ തീവ്രതയും വരച്ചുകാട്ടുന്ന, മലയാളത്തിലെ എക്കാലത്തെയും മികച്ച ക്ലാസിക് നോവലുകളിലൊന്ന്.",
-              },
-              {
-                title: "അസുരവിത്ത്",
-                review:
-                  "അധികാരത്തിനും വിശ്വാസത്തിനും ഇടയിൽ ഞെരിഞ്ഞമരുന്ന ഒരു മനുഷ്യൻ്റെ ആത്മസംഘർഷങ്ങളുടെ കഥ പറയുന്ന ശക്തമായ രചന.",
-              },
-              {
-                title: "മഞ്ഞ്",
-                review:
-                  "കാത്തിരിപ്പിൻ്റെയും പ്രതീക്ഷയുടെയും വിഷാദഭാവങ്ങൾ മനോഹരമായി ആവിഷ്കരിച്ച, മലയാളികളെ ഏറെ സ്വാധീനിച്ച നോവൽ.",
-              },
-              {
-                title: "കാലം",
-                review:
-                  "സേതു എന്ന യുവാവിൻ്റെ ജീവിതത്തിലൂടെ കാലത്തിൻ്റെ മാറ്റങ്ങളെയും വ്യക്തിപരമായ നഷ്ടങ്ങളെയും അതിമനോഹരമായി അവതരിപ്പിക്കുന്നു.",
-              },
-              {
-                title: "രണ്ടാമൂഴം",
-                review:
-                  "മഹാഭാരതത്തെ ഭീമൻ്റെ കാഴ്ചപ്പാടിലൂടെ പുനരാവിഷ്കരിക്കുന്ന, ഇന്ത്യൻ സാഹിത്യത്തിലെ തന്നെ ഒരു നാഴികക്കല്ലായ നോവൽ.",
-              },
-              {
-                title: "വിലാപയാത്ര",
-                review:
-                  "മരണവും ജീവിതവും തമ്മിലുള്ള ബന്ധത്തെക്കുറിച്ചുള്ള ആഴത്തിലുള്ള ചിന്തകൾക്ക് വഴിവെക്കുന്ന ഹൃദയസ്പർശിയായ രചന.",
-              },
-              {
-                title: "അറബിപ്പൊന്ന്",
-                review:
-                  "എൻ.പി. മുഹമ്മദുമായി ചേർന്നെഴുതിയ ഈ നോവൽ പ്രവാസ ജീവിതത്തിൻ്റെയും സൗഹൃദത്തിൻ്റെയും കഥ പറയുന്നു.",
-              },
-            ],
-          },
-          akkitham: {
-            name: "അക്കിത്തം അച്യുതൻ നമ്പൂതിരി",
-            image: "https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-akkitham.jpg",
-            bio: "ജ്ഞാനപീഠം നേടിയ കവി.",
-            works: [
-              {
-                title: "ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം",
-                review:
-                  "സ്നേഹമാണ് ലോകത്തിൻ്റെ അടിസ്ഥാനമെന്നും മനുഷ്യൻ്റെ കണ്ണീരിനാണ് ഏറ്റവും വിലയെന്നും ഉദ്ഘോഷിച്ച, മലയാള കവിതയുടെ ഗതി മാറ്റിയ കൃതി.",
-              },
-              {
-                title: "ബലിദർശനം",
-                review:
-                  "ചരിത്രത്തെയും മിത്തുകളെയും സമന്വയിപ്പിച്ച് മനുഷ്യൻ്റെ നിസ്സഹായതയും വേദനയും ആവിഷ്കരിക്കുന്ന, കേന്ദ്ര സാഹിത്യ അക്കാദമി അവാർഡ് നേടിയ കാവ്യം.",
-              },
-              {
-                title: "വെണ്ണക്കല്ലിന്റെ കഥ",
-                review:
-                  "ലളിതമായ ഭാഷയിൽ ഗഹനമായ തത്വചിന്തകൾ അവതരിപ്പിക്കുന്ന, കുട്ടികൾക്കും മുതിർന്നവർക്കും ഒരുപോലെ ആസ്വദിക്കാൻ കഴിയുന്ന കവിതകൾ.",
-              },
-              {
-                title: "നിമിഷ ക്ഷേത്രം",
-                review:
-                  "ജീവിതത്തിലെ ഓരോ നിമിഷത്തിൻ്റെയും പ്രാധാന്യത്തെ ഓർമ്മിപ്പിക്കുന്ന, ആഴത്തിലുള്ള ദാർശനിക ചിന്തകൾ നിറഞ്ഞ കവിതാ സമാഹാരം.",
-              },
-              {
-                title: "മനസാക്ഷിയുടെ പൂക്കൾ",
-                review:
-                  "വ്യക്തിപരമായ അനുഭവങ്ങളെ സാമൂഹികമായ കാഴ്ചപ്പാടുകളുമായി ബന്ധിപ്പിക്കുന്ന, ചിന്തോദ്ദീപകമായ കവിതകൾ.",
-              },
-              {
-                title: "ഇടിഞ്ഞു പൊളിഞ്ഞ ലോകം",
-                review:
-                  "കാലത്തിൻ്റെ മാറ്റത്തിൽ നഷ്ടപ്പെട്ടുപോകുന്ന മൂല്യങ്ങളെക്കുറിച്ചുള്ള വേദനയും ആശങ്കയും പങ്കുവെക്കുന്ന ശക്തമായ കവിതകൾ.",
-              },
-              {
-                title: "അമൃതഗാഥിക",
-                review:
-                  "സ്നേഹത്തിൻ്റെയും കരുണയുടെയും അമൃതം പകരുന്ന, ആത്മീയതയുടെ തലങ്ങളിലേക്ക് വായനക്കാരെ കൊണ്ടുപോകുന്ന കാവ്യം.",
-              },
-            ],
-          },
-        };
+    <script>
+      // --- Data for Writers ---
+      const writersData = {
+        mt: {
+          name: "എം.ടി വാസുദേവൻ നായർ",
+          image:
+            "https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-mt.jpg",
+          bio: "മലയാള സാഹിത്യത്തിലെ ഇതിഹാസകാരൻ.",
+          works: [
+            {
+              title: "മഞ്ഞ്",
+              review: `
+                തന്റെ മാന്ത്രിക രചനകൊണ്ട് വായനക്കാരുടെ മനസ്സിൽ മയങ്ങാൻ കഴിയുന്ന മലയാളക്കരയുടെ പ്രശസ്ത എഴുത്തുകാരൻ എം.ടി.വാസുദേവൻ നായരുടെ പ്രദാന കൃതികളിൽ ഒന്നാണ് മഞ്ഞ് എന്ന ഈ നോവൽ. അവ്യക്തതയിലെ വ്യക്തതയും അപൂർണതയിലെ പൂർണ്ണതയുമുള്ള ഒരു ഭാവഗാനം.ഭൂതകാത്തിന്റെ ശബ്ദങ്ങളും വർണ്ണങ്ങളും വർത്തമാനത്തിലേക്ക് തിരിച്ചുവരുന്ന കവിത. കാലത്തിന്റെ ചലനത്തിലും നിശ്ചലതയിലും കാത്തിരിക്കുന്ന മനുഷ്യരും പ്രകൃതിയും. ''വരും വരാതിരിക്കില്ല" എന്ന പ്രതീക്ഷയെ മുറുകെ പിടിച്ച് മനസ്സിന്റെ താഴ്‌വരയിൽ ഉരുകിയുറയുന്ന മഞ്ഞുകട്ടകളുടെ കാത്തിരിപ്പിന്റെ അനുഭവം. നെെനിറ്റാളിന്റെ ലാവണ്യത്തിന്റെയും, കേന്ദ്രകഥാപാത്രമായ വിമല യുടെ കാത്തിരിപ്പിന്റെയും,നോവലിന്റെ ഹൃദയമായ നിശബ്ദതയുടെയും വർണനകളിൽ നാം ഈ കാവ്യാത്മകതയെ ആസ്വദിക്കുന്നു.
 
-        // --- Scroll Reveal Animation ---
-        const revealElements = document.querySelectorAll(".reveal");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
-            });
-          },
-          {
-            threshold: 0.1,
-          }
-        );
-        revealElements.forEach((el) => observer.observe(el));
+                സഞ്ചരികൾ എത്തിയില്ലങ്കിൽ നെെനിറ്റാൾ ശൂന്യമാണ്.എന്നാൽ സഞ്ചരികളുടെ സീസണുകളിൽ ഉറക്കച്ചടവിൽ നിന്നുമുണർന്ന് നെെനിറ്റാൽ കൂടുതൽ സുന്തരിയാവുന്നു.ഓരോ സീസണും അവസാനിക്കുമ്പോൾ അടുത്തകൊല്ലം സഞ്ചരികളെ വരവേൽക്കുമെന്ന പ്രതിക്ഷയിൽ ആ നാട് കാത്തിരിക്കുന്നു. അതുപോലെ ആ കുമായൂൺ കുന്നുകൾക്ക് താഴെ നെെനിറ്റാളിന്റെ താഴ്‌വരയിൽ വരും വരാതിരിക്കില്ലെന്ന പ്രതിക്ഷയുമായി ''സുധീർ കുമാർ മിശ്ര" എന്ന തന്റെ പ്രിയതമനെ കാത്തിരിക്കുകയാണ് വിമല.തന്റെ വിട്ടിലെ അസ്വസ്ഥതമായ സാഹചര്യങ്ങളിൽ നിന്നും മോചനമാഗ്രഹിച്ച് കുമയൂൺ പ്രദേശത്തെ നെെനിറ്റാളിലെത്തി അവിടുത്തെ ബോർഡിങ്ങ് സ്കൂളിലെ അധ്യാപികയായ "വിമല ദേവി"യുടെ അവധിക്കാലമാണ് മഞ്ഞിന്റെ പശ്ചാത്തലം. എല്ലാ വിദ്യാർത്ഥികളും ജീവനക്കാരും വേനൽ അവധിയുടെ തുടക്കത്തിൽ സ്ക്കുൾ വിടുന്നുണ്ടെങ്കിലും വിമല അവിടെ തന്നെ നിൽക്കുന്നു.കിടപ്പിലായ വിമലയുടെ പിതാവ് കുട്ടികൾക്ക് സ്നേഹമോ അടുപ്പമോ തോന്നാത്ത കർക്കശക്കാരനും, ഭയപ്പെടുത്തുന്നവനും ആയിരുന്നു.അമ്മ അടുത്തുളള ഓരാളുമായി രഹസ്യമായ കൂടിക്കാഴ്ചയിൽ മുഴുകിയിരിക്കുന്നു .സ്നേഹോഷ്മളമായ ഒരു കുടുംബപശ്ചാത്തലം ഇല്ലഞ്ഞതിനാലാവാം വിമല നാട്ടിലേക്ക് പോകാതെ അവധിക്കാലം അവിടെ ചിലവഴിക്കുന്നത്.
 
-        // --- Modal Logic ---
-        const modal = document.getElementById("writer-modal");
-        const closeModalBtn = document.getElementById("modal-close");
-        const mtCard = document.getElementById("writer-mt");
-        const akkithamCard = document.getElementById("writer-akkitham");
+                അവിടെവെച്ചു വിമല "ബുദ്ധു''എന്ന ഒരാളെ കണ്ടുമുട്ടുന്നു.ഇതുവരെയും കണ്ടിട്ടില്ലാത്ത 'വെളളക്കാരനെ'ന്ന തന്റെ പിതാവിനെ കാത്തിരിക്കുകയാണ് ബുദ്ധു എന്ന ആ തോണിക്കാരൻ. മരണം അരികിൽ കാത്തുനിൽക്കുമ്പോൾ ഒരു വെെകുന്നേരം കടം ചോദിച്ചുകൊണ്ട് സ്നേഹത്തിന്റെ നേർത്തൊരിറ്റുമായി വിമലക്കരികിലേക്കെത്തുന്ന "സർദാർജി'' എന്ന ഒരു വ്യത്യസ്തമായ കഥാപാത്രം.
 
-        const modalName = document.getElementById("modal-name");
-        const modalImg = document.getElementById("modal-img");
-        const modalBio = document.getElementById("modal-bio");
-        const modalWorks = document.getElementById("modal-works");
+                അങ്ങനെ കാലത്തിന്റെ കയത്തിൽ കാത്തിരിപ്പിലാണ്ടുപോയ മനുഷ്യരുടെ കഥയാണ് എം.ടി യുടെ മഞ്ഞ്.എഴുത്തുകാരൻ വേർപ്പാടിന്റെ നോവിലും നമുക്ക് ഓർമ്മതന്നത് മരണം രംഗബോധമില്ലാത്ത ഒരു കോമാളിയാണ്
 
-        const openModal = (writerKey) => {
-          const data = writersData[writerKey];
-          if (!data) return;
+                അറുപത് വർഷങ്ങൾക്കിപ്പുറം നെെനിറ്റാളിന്റെ താഴ്‌വരയിൽ പെയ്യാൻതുടങ്ങിയ മഞ്ഞ് ഇതുവരെയും പെയ്തുതോർന്നിട്ടില്ല.
 
-          modalName.textContent = data.name;
-          modalImg.src = data.image;
-          modalBio.textContent = data.bio;
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">✍🏻ജസീല<br>ബി.എ സോഷ്യോളജി<br>മൂന്നാം വർഷം</span>
+              `,
+            },
+            {
+              title: "അറബിപ്പൊന്ന്",
+              review: `
+                എം. ടി. വാസുദേവൻ നായർ, എൻ. പി. മുഹമ്മദ്‌ എന്നിവർ എഴുതിയ "അറബിപ്പൊന്ന്" 1960-ൽ പ്രസിദ്ധീകരിച്ച ഒരു ശ്രദ്ധേയമായ മലയാള നോവലാണ്. ഇത് മലയാളത്തിലെ ആദ്യത്തെ കൂട്ടുരചനയായും, ഇന്ത്യയിലാദ്യമായി രണ്ടുപേർ ചേർന്ന് എഴുതിയ നോവലായും കണക്കാക്കപ്പെടുന്നു.1960-ൽ പ്രസിദ്ധീകരിച്ച ഈ കൃതി ഗൾഫ് സ്വർണ്ണക്കടത്തിന്റെ പശ്ചാത്തലത്തിൽ കേരളീയ സമൂഹത്തിലെ താൽപര്യങ്ങൾ, ആഗ്രഹങ്ങൾ, അഴിമതി, ലാഭം എന്നിവയെ വിശകലനം ചെയ്യുന്നു. കഥയുടെ പശ്ചാത്തലവും ഭാഷയും യാഥാർത്ഥ്യബോധം നിറഞ്ഞതും ശക്തവുമാണ്.
 
-          modalWorks.innerHTML = ""; // Clear previous works
-          data.works.forEach((work) => {
-            const workElement = document.createElement("div");
-            workElement.className =
-              "border border-gray-200 rounded-lg overflow-hidden";
-            workElement.innerHTML = `
+                എന്താണ് ഈ നോവലിൽ പറയുന്ന കഥ എന്ന് വിലയിരുത്താൻ നോക്കുന്നത് ഒരു വലിയ സാഹസമൊന്നുമല്ല. എക്കാലവും മനുഷ്യനെ ക്രൂരനും അത്യാഗ്രഹിയും കുറവാളിയും ആകുവാൻ സ്വർണമെന്ന മഞ്ഞലോഹത്തിന് കഴിഞ്ഞിട്ടുണ്ട്..കഥയുടെ കേന്ദ്രപാത്രമായ കോയ ഒരു സ്വർണ്ണക്കടത്തുകാരനാണ്. അറബ് കപ്പലുകൾ വഴി വരുന്ന വിലപ്പെട്ട സാധനങ്ങൾ കൈവശംവച്ച്, സാമ്പത്തിക നേട്ടം നേടുകയാണ് അവന്റെ ലക്ഷ്യം. എന്നാൽ ഈ ലോകം കൊടുക്കുന്ന ആഡംബരവും ആവേശവും അതിനോട് ചേര്‍ന്നുള്ള ധ്രുവവിപരീതമായ ശൂന്യതയും കോയയുടെ ജീവിതം വളരെ പ്രകാശവൽക്കരിക്കുന്നു. കോയയുടെ മുഖേന, മനുഷ്യൻ എങ്ങനെ സ്വാർത്ഥതയുടെയും ആഗ്രഹങ്ങളുടെയും പിടിയിൽ മാഞ്ഞുപോകുന്നുവെന്ന് നോവൽ കാണിക്കുന്നു.
+
+                കോയയുടെ ജീവിതത്തിൽ കാണുന്ന ആഡംബരവും അതിനൊപ്പം അടിയന്തരമായി വരുന്നത് പോലെയുള്ള തകർച്ചയും നോവലിന്റെ ഉള്ളടക്കത്തിൽ ആഴമേറും. അദ്ദേഹത്തിന്റെ ലോകദർശനം "പൊന്ന്, കലർപ്പില്ലാത്ത തനി പൊന്ന്… ഇന്ത്യക്കാർ അതിന്റെ ആരാധകരാണ്” എന്ന വാക്യത്തിൽ പൂർണ്ണമായി പ്രതിഫലിക്കുന്നു.സ്വർണ്ണത്തിന്റെ ആകർഷണവും അതിന് പിന്നിൽ ഒളിഞ്ഞിരിക്കുന്ന ദുരന്തവും ഈ വാക്യത്തിൽ നിറഞ്ഞു നിൽക്കുന്നു.
+
+                കോയ എന്ന ചെറുപ്പക്കാരന്റെ ജീവിതത്തിലെ രണ്ടു ഘട്ടങ്ങൾ ആണ് നോവൽ വിലയിരുത്തുന്നത്. ഒന്ന് സമൃദ്ധിയിൽ നിന്നും ദാരിദ്രത്തിലേക്കും ഉത്തരവാദിത്തങ്ങളിലേക്കും വലിച്ചെറിയപ്പെടുന്ന ഘട്ടം മറ്റൊന്ന് സമൃദ്ധിയിലേക്ക് ഒരു പാത തുറക്കുന്ന ഘട്ടം.രണ്ടിലും അയാൾ അനുഭവിക്കുന്ന മാനസിക ശാരീരിക ബുദ്ധിമുട്ടുകളുടെ വിശദമായ വായനയാണ് ഈ നോവൽ.
+
+                അറബിപ്പൊന്ന് സൗന്ദര്യവും ഭീഷണിയുമുള്ള ഒരു ലോകത്തെ ദൃശ്യവൽക്കരിക്കുന്നതിനൊപ്പം, ആ ലോകത്തിന്റെ അകത്തളങ്ങളിലേക്കുള്ള ദാർശനിക കാഴ്ചയാണ്. ഈ കൃതിയിൽ നൈതികതയുടെ അതിരുകൾ, സമൂഹത്തിലെ അഴിമതി, മനുഷ്യ ബന്ധങ്ങൾ എന്നിവയെ കുറിച്ചുള്ള ചോദ്യങ്ങൾ ഉയർത്തപ്പെടുന്നു. കഥയിലെ ഭാവഭംഗിയും ഭാഷയും മലയാള സാഹിത്യത്തിൽ പുതിയൊരു വഴിത്തിരിവായിത്തീരുന്നു.
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">✍️ ഫാത്തിമ ഷഹീദ. പി<br>ബി എ ഇംഗ്ലീഷ്<br>മൂന്നാം വർഷം</span>
+              `,
+            },
+            {
+              title: "വിലാപയാത്ര",
+              review: `
+                മലയാള സാഹിത്യത്തിലെ ശബ്ദഭാരമുള്ള പേരാണ് എം ടി വാസുധേവൻ നായർ. അദ്ദേഹത്തിന്റെ മികച്ച ചെറു കഥകളിലൊന്നാണ് “വിലാപയാത്ര ”ജീവിതത്തിൽ നമ്മൾ കാണാതെ പോവുന്ന ബന്ധങ്ങളുടെ മൂല്യവും അതിന്റെ നഷ്ട്ടത്തെ കുറിച്ചുള്ള അവതരണവുമാണ് ഇതിൽ പ്രാധാന്യം . ഇത് വായനക്കാരെ ഒരു യാത്രയിലേക്കാണ് നയിക്കുന്നത്, ആത്മീയവും മാനസീകവുമായ ഒരു യാത്ര.
+
+                അച്ഛന്റെ ശവസംസ്കാരത്തിന് നാട്ടിൽ എത്തുന്ന നാല് മക്കളുടെ ചിന്തയാണ് ഇതിൽ പ്രധാന്യം. രാജൻ, അപ്പു, കുട്ടേട്ടൻ, ഉണ്ണി എന്നിവരാണ് ഇതിലെ പ്രധാന കൃതികൾ. തിരക്ക് പിടിച്ച ജീവിതത്തിനിടയിൽ അച്ഛന്റെ മരണാനന്ദര ചടങ്ങുകൾക്ക് പോലും നാട്ടിൽ നിൽക്കാൻ മക്കൾക്ക് സാധിക്കില്ലായിരുന്നു. ഈ യാത്രയുടെ ആഴം വ്യക്തികത ഓർമകളിലേക്കും ആത്മാബോധത്തിലേകുമാണ് നയിക്കുന്നത് .മരണം അടുക്കുമ്പോൾ മാത്രമാണ് ഉറ്റവരുടെ ജീവിതത്തിന്റെ വില മനസ്സിലാക്കാൻ സാധിക്കുന്നത്.ആരൊക്കെയോ ബോധിപ്പിക്കാനെന്നവണ്ണമാണ് അവർ നാല് പേരും ഈ ചടങ്ങുകളിലൂടെയെല്ലാം കടന്ന് പോവുന്നത്.കാലത്തിനൊപ്പം സഞ്ചരിക്കാൻ പാട് പെടുന്ന ചില മനുഷ്യർ.ജീവിതത്തിന്റെ വെദനകളും, ചെറു സന്തോഷങ്ങളും ,നഷ്ടബോധങ്ങളും ഇതിലൂടെ ഉണർത്തുന്നു.നമ്മുടെ ജീവിതത്തിൽ നാം ചിലർക്ക് ചേർന്ന് നിൽക്കാൻ പറ്റാതെ പോകുന്നുവെങ്കിലും, അവരുടെ നഷ്ട്ടമാണത്രേ നമുക്ക് അവരുടെ വില മനസ്സിലാക്കാൻ ഇടയാക്കുന്നത്. അച്ഛൻ ജീവിച്ചിരിക്കുന്ന കാലത്ത് അച്ഛനെ അനുഭവിക്കാതെ പോയത് മരണാനന്തരം കുറ്റബോധമായി മാറുന്നു.ജീവിതം തന്നെ ഒരു വിലാപയാത്രയല്ലേ എന്ന് സന്ദേഹിക്കുകയാണ് എം ടി യുടെ തൂലികയിൽ രൂപം കൊണ്ട കഥാപാത്രങ്ങൾ.
+
+                “വിലാപയാത്ര “ഒരു രചന എന്നതിലപ്പുറം ഒരു മാനസീക സന്ദർശനം കൂടി ആണ്. മരണത്തിന് ഷെശം മാത്രമേ ചില ബന്ധങ്ങളുടെ ഭാരം മനസ്സിലാവൂ എന്നതാണ് കഥയിലൂടെ പ്രകടമാകുന്ന സന്തേശം. എം. ടി .യുടെ രചനാശയ്‌ലി ലളിതമാണെങ്കിലും അതിലുണ്ട് അതിരുകളില്ലാത്ത ആഴം. വായനക്കാരുടെ ഹൃദയത്തോട് കയറിയിണങ്ങുന്ന ആഴമുള്ള അനുഭവമാണ് ഇത് നൽകുന്നത്.
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">✍️ ഫാത്തിമ ശിഫ<br>ബി. എ ഇംഗ്ലീഷ്<br>രണ്ടാം വർഷം</span>
+              `,
+            },
+            {
+              title: "കാലം",
+              review: `
+                കഥയല്ല, ജീവിതം തന്നെയാണ്. ''കാലം'' വായനയുടെ അതിരുകൾ താണ്ടുമ്പോൾ
+
+                വിജയിക്കാനായി മുന്നോട്ട് പോയപ്പോൾ സ്വന്തം ആത്മാവിനെയാണ് ഇല്ലാതെയാക്കിയത് എന്ന് തിരിച്ചറിയുമ്പോഴേക്കും കാലടിയിലെ അവസാന തരി മണ്ണും കൊഴിഞ്ഞു പോയത് കണ്ട്, വീണ്ടുമൊരു അവസരത്തിനായി യാചിക്കുന്ന മനുഷ്യ ജീവിതത്തിന്റെ കഥയാണ് "കാലം"
+
+                "കാലം" കഥ പറയുന്നത് സേതുവിന്റെ ജീവിതത്തിലൂടെയാണ്.
+                ഇല്ലായ്മയുടെയും ദാരിദ്രത്തിന്റെയുമിടയിലൂടെ നടന്ന കൗമാരക്കാരൻ വിദ്യഭ്യാസത്തിലൂടെ ഉദ്യാഗ്യക്കാരനായി മാറിയ സേതു. യാതൊരു ഉപാധികളുമില്ലാതെ, അവകാശത്തോടെ ഒന്ന് നോക്കുക പോലും ചെയ്യാതെ സേതുവിനെ മാത്രം സ്നേഹിച്ച വടക്കേതിലെ സുമിത്രയുടെയും കഥയാണിത്.
+
+                കാലം എന്നത് ഒരു പ്രഹേളികയാണ്. മനസ്സിലാക്കാന്‍ ശ്രമിക്കുമ്പോള്‍ വഴുതിപ്പോകുന്ന ഒരു ആശയസങ്കീര്‍ണ്ണതയും, പൂര്‍ണമായി നമുക്ക് വഴങ്ങി തരാത്തതുമാണ്. എം.ടി 300-ലധികം പേജുകളില്‍ ഇടപഴകിക്കൊണ്ട് വരച്ചുകാണിച്ച ദൃശ്യങ്ങളും സംഭവങ്ങളും, കാലത്തിന്റെ തത്ത്വവും, ദുരൂഹതയുമാണ്.
+
+                കാലത്തിന്റെ മറുകരയെ തേടിയ മനുഷ്യന്റെ വൃഥാ പരിശ്രമങ്ങളാണ് കഥയുടെ പ്രമേയം. തകര്‍ന്നു വീഴാന്‍ ഇടയായ ഒരു നാലുകെട്ട്, അതിന്റെ സമൃദ്ധിയുടെ ഓര്‍മകളില്‍ കുടുങ്ങി കാലത്തെ അതിജീവിക്കാന്‍ ശ്രമിക്കുന്ന ഒരു തറവാട്. അതിനോട് സമാന്തരമായി പുതിയ കാലത്തിലേക്കു കുതിക്കാന്‍ ശ്രമിക്കുന്ന ഒരു ആണ്‍കുട്ടി.
+                തന്റെ യൗവനത്തിലേക്ക് കടക്കുന്ന വഴിയിൽ കാലം എന്നും പിന്തുടരുന്നു. ഈ യാത്രയിലെ വൃദ്ധിക്ഷയങ്ങള്‍ ഒരു പുഴയുടെ ഉയര്‍ച്ചതാഴ്ചകളിലൂടെ പകര്‍ത്താനുള്ള എം. ടി.യുടെ ശ്രമം ഈ കൃതിയെ സങ്കീര്‍ണ്ണവും സമ്പുഷ്ടവുമായതായി മാറ്റുന്നു.
+
+                കാലം എന്ന കൃതി, മനുഷ്യനായി കടന്നുപോകുന്ന ഓരോ ഘട്ടത്തിന്റെയും അനിശ്ചിതത്വങ്ങളും ആശങ്കകളും, അതോടൊപ്പം ഉള്ള പ്രതീക്ഷകളും പ്രണയങ്ങളും അതീവ ദൃശ്യമായി വരച്ചു കാട്ടുന്നു. ഇത് വായനക്കാരനെ കാലത്തോളം നയിക്കുന്നതും, കാലത്തേക്കുള്ള ഭാവനാപരമായ ഒരു അന്വേഷണമാക്കുന്നതുമാണ്.
+
+                ഒരു തലമുറയല്ല, ഒട്ടനവധി തലമുറകൾ ''കാലം''എന്ന നോവലിലെ സേതുവിൽ സ്വയം കണ്ടു. സുമിത്രയെ പരിചയപ്പെട്ടു, തങ്കമണിയെ സ്നേഹിച്ചു, മിസ്സിസ് മേനോനെ സഹതാപത്തോടെയും അസൂയയോടെയും നോക്കി. കഥയുടെ പശ്ചാത്തലമായി പുഴയേക്കാൾ ശക്തമായി ഒഴുകുന്നത് ജീവിതത്തിന്റെ തന്നെ ഒഴുക്കായിരുന്നു. അതിലിറങ്ങി കയറി ഓരോരുത്തരും സ്വന്തം അനുഭവങ്ങളിൽ വീണ്ടും ജീവിച്ചു.
+
+                കേന്ദ്ര സാഹിത്യ അക്കാദമി പുരസ്‌കാരം നേടിയ "കാലം" എം.ടിയുടെ സാഹിത്യ ജീവിതത്തിലെ പ്രധാന കൃതികളിലൊന്നാണ്. മനോഹരമായ ഭാഷ, ഗൗരവമേറിയ ആഖ്യാനം, കഥാപാത്രങ്ങളുടെ ആന്തരികത എന്നിവ ഈ കൃതിയെ മലയാള സാഹിത്യത്തിലെ ക്ലാസിക് ആക്കുന്നു.
+
+                എം.ടി. വാസുദേവൻ നായർ മലയാളത്തിന്റെ കഥ പറയുന്ന ശബ്ദം മത്രമല്ല, ജീവിതം പകർത്തുന്ന കണ്ണും കരുത്തുമാണ്. അതാണ് എം. ടി.യുടെ എഴുത്തിന്റെ യഥാർത്ഥ വിജയം.
+
+                ഒരു നല്ല പുസ്തകം നമുക്ക് പുതിയ കാഴ്ചപ്പാടുകൾ നൽകുന്നു. ''കാലം'' നമ്മെ നമുക്ക് തന്നെ പരിചയപ്പെടുത്തുന്നു."
+
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">✍️ഫാത്തിമ ഫിദ. സി<br>ബി.കോം<br>രണ്ടാം വർഷം</span>
+              `,
+            },
+          ],
+        },
+        akkitham: {
+          name: "അക്കിത്തം അച്യുതൻ നമ്പൂതിരി",
+          image:
+            "https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-akkitham.jpg",
+          bio: "ജ്ഞാനപീഠം നേടിയ കവി.",
+          works: [
+            {
+              title: "ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം",
+              review: `
+                "ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം" എന്ന കവിതയിൽ അക്കിത്തം ഒരു കാലഘട്ടത്തിന്റെ ആന്തരിക മുഖം വെളിപ്പെടുത്തുന്നു. സാംസ്കാരികവും മതപരവുമായ മാറ്റങ്ങൾ, ആത്മീയതയിലേക്കുള്ള തിരിച്ചുവരവ്, മനുഷ്യന്റെ ഉള്ളിൽ ഉണ്ടാകുന്ന ഒറ്റപ്പെടൽ ഇതെല്ലാം ഗൗരവത്തോടെയും കാവ്യാത്മകതയോടെയും അദ്ദേഹം അവതരിപ്പിക്കുന്നു. കാലത്തിനു മുമ്പേ നടന്ന ഒരു കവിക്ക് മാത്രം സൃഷ്ടിക്കാൻ കഴിയുന്ന അത്ഭുതമാണ് ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം.
+
+                ഇരുപതാം നൂറ്റാണ്ട് എന്നത് തികഞ്ഞ ഭൗതികതയുടെ കാലമായിരുന്നു. എന്നാൽ അതിനിടെ ആത്മീയത നഷ്ടപ്പെട്ട മനുഷ്യൻ അവന്റെ അകത്വത്തിൽ തളരുന്നു. മതത്തിന്റെ പേരിൽ മനുഷ്യൻ മനുഷ്യനെ വിദ്വേഷിക്കുകയും, രാഷ്ട്രീയ താൽപര്യങ്ങൾ ഉയർന്നു പോകുകയും മാനുഷിക മൂല്യങ്ങൾ താഴ്ന്നു പോകുകയും ചെയ്ത നൂറ്റാണ്ടിന്റെ യാഥാർത്ഥ്യമാണ് കവിത ചൂണ്ടിക്കാണിക്കുന്നത്. ഒടുവിൽ കവി ഈ നൂറ്റാണ്ടിനെ കുറിച്ച് പ്രതീക്ഷയും നിരാശയും ചേർന്ന ഒരു നിലപാടിൽ നിന്നാണ് സംസാരിക്കുന്നത്. അതുകൊണ്ടുതന്നെ ഈ കാവ്യം ഒരു മനുഷ്യരാശിയുടെ അകത്വത്തിന്റെയും ആത്മീയ അന്വേഷണത്തിന്റെയും ശക്തമായ രേഖപ്പെടുത്തലാണ്.. താൻ അനുഭവിച്ച കാലത്തെ നോക്കിക്കണ്ടാണ് കവി 'ഇതിഹാസം' എഴുതുന്നത്.
+
+                അക്കിത്തത്തിന്റെ ഭാഷ ലളിതമാണെങ്കിലും അതിനുള്ളിലെ ആശയങ്ങൾ ഏറെ ആഴമുള്ളവയാണ് കവിതയിൽ ഉപമകളും ചിന്തകളും ഗൂഡമായതുകൊണ്ട് പലതും ഒന്നിലധികം വായനയ്ക്കുശേഷം മാത്രമേ വായനക്കാർക്ക് മനസ്സിലാവു. ഇതൊരു സാധാരണ കവിതയല്ല ഒരു കാലഘട്ടത്തിന്റ ചിന്താനിർമ്മിതിയാണ്. വിദ്യാർത്ഥികൾക്കും സാഹിത്യപ്രേമികൾക്കും വലിയ പഠനാനുഭവം ഈ കവിത നൽകും.
+
+                സാമൂഹികവും ആത്മീയവുമായ വൃത്താന്തങ്ങൾ ഒറ്റ കാവ്യത്തിൽ ഇങ്ങനെ ആഴത്തിൽ ഒതുങ്ങിയ മറ്റൊരു കൃതി മലയാള സാഹിത്യത്തിൽ അപൂർവമാണ്. അകിത്തം തന്റെ നിരീക്ഷണശക്തിയും ഭാഷാസൗന്ദര്യവും ചേർത്ത് മനുഷ്യരാശിയുടെ ഒരു ആന്തരിക ചരിത്രം തന്നെ ഈ കവിതയിലൂടെ വരച്ചിട്ടുണ്ട്. ഭൗതികതയുടെ ചൂടിലും ആത്മീയ ശൂന്യതയുടെ തണുപ്പിലും ഒറ്റപ്പെട്ടുപോകുന്ന ഇന്ന് നമ്മളെല്ലാവർക്കും ഈ കാവ്യത്തിൽ നിന്നു ചിന്തിക്കാൻ കാര്യങ്ങൾ അനവധി ഉണ്ടെന്നത് സംശയമില്ല. അതിനാൽ സാമൂഹ്യ ബോധം ഉള്ളവരും ആധുനിക ജീവിതത്തെ പുതിയ കണ്ണുകൊണ്ട് കാണാൻ ആഗ്രഹിക്കുന്നവരും ഈ കൃതി ഒരിക്കലെങ്കിലും വായിക്കേണ്ടതാണ്. അതിലൂടെ നാം നമ്മെയെന്തുകൊണ്ട് മറന്നു പോവുന്നു എന്നതിനെക്കുറിച്ച് ഒരു വലിയ തിരിച്ചറിവ് കൈവരിക്കാം.
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">✍️ആയിഷ ഹുദ<br>പ്ലസ് ടു സയൻസ്</span>
+              `,
+            },
+            {
+              title: "കളിക്കൊട്ടിലിൽ",
+              review: `
+                "കളിക്കൊട്ടിലിൽ" എന്ന കൃതി ബാല്യത്തിന്റെ അഹംരഹിതമായ ലോകത്തേക്കുള്ള കാവ്യാത്മകമായ തിരിഞ്ഞുനോട്ടമാണ്. ഈ കവിതാസമാഹാരം പ്രാഥമികമായി കുട്ടികൾക്കായുള്ളതായിരുന്നെങ്കിലും, അതിനുള്ളിൽ ഒരുപാട് തത്വചിന്തകളും മാനസിക ആഴങ്ങളുമുണ്ട്. കവി കുട്ടികളുടെ കളികൾ, ചിന്താശൈലി, മനസ്സിന്റെ തെളിച്ചം എന്നിവയെ സൂക്ഷ്മമായി നിരീക്ഷിച്ച് അതിനുള്ളിൽ ജീവിതത്തിന്റെ മഹത്തായ സത്യങ്ങൾ തേടുന്നു.
+
+                "കളിക്കൊട്ടിൽ" എന്നത് ഇവിടെ ബാല്യത്തിന്റെ പ്രതീകമായി ഉപയോഗിക്കപ്പെടുന്നു — തൊട്ടിലിനുള്ളിൽ കളിക്കുന്ന കുട്ടി, ലോകത്തെ അറിയാത്ത നിരപരാധിത്വത്തിന്റെ പ്രതീകമാണ്. എന്നാൽ കവി അതിലൂടെ ഉദ്ദേശിക്കുന്നത് കൂടുതൽ ആഴമുള്ളതും ദാർശനികവുമായതുമാണ്. ജീവിതം ഒടുവിൽ ഒരു വലിയ കളിക്കൊട്ടിൽ തന്നെയാണെന്ന് അദ്ദേഹം സൂചിപ്പിക്കുന്നു — ഓരോ മനുഷ്യനും ആ 'കളിയിലൊരു കുട്ടിയാണ്', അതിനുള്ളിൽ വേദനയും സന്തോഷവും ഒരുപോലെ അടങ്ങിയിരിക്കുന്നു. ബാല്യത്തെക്കുറിച്ചുള്ള ഭാവനയിലൂടെ കവി ജീവിതത്തെകുറിച്ചുള്ള വലിയൊരു സന്ദേശമാണ് നൽകുന്നത്.
+
+                നമുക്കുള്ളിലെ കുട്ടിയെ തിരിച്ചറിയാനും അതിന്റെ നിർമ്മലതയെ മാനിക്കാനുമാണ്. സമൂഹം വളരുന്നതോടെ നഷ്ടപ്പെടുന്ന മാനവികതയും കരുണയും തിരിച്ചുപിടിക്കേണ്ടതിന്റെ ആവശ്യകത കവി ചൂണ്ടിക്കാട്ടുന്നു. ഭാഷയുടെ ലാളിത്യത്തിലൂടെ ഗൗരവപൂർണമായ സന്ദേശങ്ങൾ അക്കിത്തം അതുല്യനായിരുന്നുവെന്ന് ഈ കൃതി വീണ്ടും തെളിയിക്കുന്നു.
+
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">✍️ഫാത്തിമ സന. ഒ<br>ബി എ ഇംഗ്ലീഷ്<br>ഒന്നാം വർഷം</span>
+              `,
+            },
+            {
+              title: "വെണ്ണക്കല്ലിന്റെ കഥ",
+              review: `
+                എത്രയെത്ര വെണ്ണക്കല്ലിനാൽ തീർത്ത കൊട്ടാരങ്ങൾ
+
+                മനുഷ്യത്വം നഷ്ടപ്പെട്ട സമൂഹത്തിനിടയിലെ ഒരു കലാകാരന്റെ ശബ്ദത്തിൻ മൗനഗാഥയാണ് അക്കിത്തം വെണ്ണകല്ലിന്റെ കഥ എന്നാ കവിതയിൽ ആവിഷ്കരിക്കുന്നത്. അക്കിത്തം അച്യുതൻ നമ്പൂതിരി മലയാള സാഹിത്യത്തിൽ അതിജീവനത്തെയും വേദനയെയും സ്നേഹത്തെയും ഹൃദയസ്പർശിയായി പാടിയ ഒരു കവിയാണ്. അദ്ദേഹത്തിന്റെ ഓരോ കവിതകളും ആത്മാവിലേക്ക് ചൂഴ് നിറങ്ങുന്നവയാണ്. ഈ കവിതയിൽ കവി ഒരു കലാകാരന്റെ ദുരന്ത കഥയിലൂടെ സമൂഹത്തിന്റെ നിർജീവത്തെയും അസൂയയെയും വിമർശനത്തെയും ചൂണ്ടിക്കാട്ടുന്നു.
+
+                ദൂരെ ഏതോ ഒരു ഗ്രാമത്തിൽ പ്രത്യേകമായി പാടാനുള്ള കഴിവുകളോടെ ഒരു കുഞ്ഞു ജനിക്കുന്നു പാട്ടിന്റെ ആസ്വാദനം എത്രത്തോളം എന്നാൽ കേട്ടാൽ കല്ലുകൾക്ക് പോലും കണ്ണുനീർ വന്നിരുന്നു. അവനെ ആ സമൂഹം ഏറ്റെടുത്തു. ഹൃദയസ്പർശിയായ ആ പാട്ടുകളെ കുറിച്ച് കേട്ടറിഞ്ഞ രാജാവ് രാജ്യസദസ്സിലേക്ക് എത്തിച്ചേരാൻ അജ്ഞാപിച്ചു. നിർഭാഗ്യവശാൽ അന്ന് അവന്റെ ശബ്ദം നഷ്ടപ്പെടുന്നു.പിന്നീട് അതേ സമൂഹം തന്നെ അവനെ കുത്തുവാക്കുകൾ കൊണ്ട് തളക്കുന്നു. അവന്റെ ഹൃദയം മരവിക്കുന്നു,കണ്ണുനീർ കല്ലാകുന്നു, ആ കല്ലുകളാണ് വെണ്ണക്കല്ലുകൾ.ഒടുവിൽ ഗായകൻ നിശ്ചലനായി. കവിതയിലെ നർത്തകിമാരുടെ പ്രവർത്തനം തികഞ്ഞ ക്രൂരതയുടെ ചിത്രത്തെ വരച്ചു കാട്ടുന്നു.
+
+                കവിതയിലെ ഭാവനാശക്തി വളരെ അത്ഭുതകരമായയാണ് സൃഷ്ടിച്ചിരിക്കുന്നത്. ഇത് അക്കിത്തത്തിന്റെ സമൂഹ വിമർശന വേദി കൂടിയാണ്. ശബ്ദത്തെ മാനിക്കാതെ പ്രതിഭയെ മനസ്സിലാക്കാതെ കണ്ണുനീരിനെ കല്ലാക്കി മാറ്റിയ ഒരുപറ്റം മനുഷ്യ പ്രകൃതിയുടെ ഭീതിജനകമായ ഒരു കാഴ്ച കൂടിയാണ്.കലാകാരന്റെ ശബ്ദം നഷ്ടപ്പെടുന്നതിനെ വ്യക്തിഗത വിഷാദമെന്നതിലേയ്ക്ക് മാത്രമല്ല, കലയെ ആരാധിക്കാനും അതിൽ ആഹ്ലാദിക്കാനും വിദ്യാഭ്യാസം കിട്ടിയ സമൂഹം ഒരിക്കൽ ആ കലാകാരനെ ഉപയോഗിച്ച ശേഷം ഉപേക്ഷിക്കുന്നു. അവനെ മാനസികമായി ചുരുട്ടുന്നു, ഒടുവിൽ അവന്‍റെ ഹൃദയശബ്ദം പോലും മരിക്കുന്നു.
+
+                സത്യത്തിൽ നാം ആരുടെയൊക്കെയോ കണ്ണുനീർ കല്ലാക്കി ആ വെണ്ണക്കല്ലുകളിൽ നിന്ന് എത്ര കൊട്ടാരങ്ങളെ പണിതിരിക്കുന്നു.
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">✍️സനീന യാസ്മിൻ<br>കെ. പി<br>ബി. എ സൈക്കോളജി<br>രണ്ടാം വർഷം</span>
+              `,
+            },
+            {
+              title: "ഇടിഞ്ഞുപൊളിഞ്ഞ ലോകം",
+              review: `
+                ‘ഇടിഞ്ഞുപൊളിഞ്ഞ ലോകം’ എന്നത് ആധുനിക കേരളത്തിലെ സാമൂഹ്യപരിവർത്തനങ്ങളെയും, മനുഷ്യനിലെ ഉൾഗതമായ തകർച്ചയെയും ഹൃദയസ്പർശിയായി അവതരിപ്പിക്കുന്ന ഒരു കവിതാസമാഹാരമാണ്. അക്കിത്തത്തിന്റെ ദാർശനികവും കരുണാപൂർണ്ണവുമായ കാവ്യഭാവം ഈ കൃതിയിലൂടെയാണ് അതിന്റെ പൂർണതയിലേക്ക് ഉയരുന്നത്.
+
+                ഈ കാവ്യത്തിൽ അദ്ദേഹത്തിന്റെ ലളിതഭാഷയും ഗൗരവഭരിതമായ ആശയങ്ങളും ചേർന്നിരിക്കുന്നു. സമൂഹത്തിലെ അനീതികളും, വ്യഥകളും, മകതാരഹിതമായ കാലത്തിന്റെ ദു:ഖവും അദ്ദേഹം വളരെ ആഴത്തിൽ എണിയിക്കുന്നു. കവിതകളിലെ വരികൾ ജീവിതത്തിന്റെ ദു:ഖകരമായ യാഥാർത്ഥ്യങ്ങൾ മറവിയില്ലാതെ തുറന്നുകാട്ടുന്നു.
+
+                അക്കിത്തത്തിന്റെ ശൈലി ലളിതമാണ്, പക്ഷേ അതിന്റെ ഉള്ളടക്കം അത്രമേൽ ആഴമുള്ളതും ചിന്തയെ ഉണർത്തുന്നതുമാണ്. ‘ഇടിഞ്ഞുപൊളിഞ്ഞ ലോകം’ ഒരു നിരാശയല്ല, മറിച്ച് മനുഷ്യന്റെ ഉന്നതതയിലേക്കുള്ള പ്രതീക്ഷയുടെ ആവിഷ്കാരമാണ്.
+
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;"> ഫാത്തിമ ഫിദ<br>പ്ലസ് ടു കൊമേഴ്സ്</span>
+              `,
+            },
+            {
+              title: "മനസാക്ഷിയുടെ പൂക്കൾ",
+              review: `
+                പ്രശസ്ത ഇന്ത്യൻ കവിയും ഉപന്യാസകാരനുമായ അക്കിത്തം അച്യുതൻ നമ്പൂതിരി എഴുതിയ മലയാള കവിതാ സമാഹാരമാണ് "മാനസാക്ഷിയുടെ പൂക്കൾ"ഇത് ഒരു ഒറ്റപ്പെട്ട പുസ്തകമല്ല, മറിച്ച് അദ്ദേഹത്തിൻ്റെ വിപുലമായ കൃതികളിൽ നിന്ന് തിരഞ്ഞെടുത്ത കവിതകളുടെ ഒരു ശേഖരമാണ്. ഈ കവിതകൾ അവയുടെ ആഴം, സാമൂഹിക വ്യാഖ്യാനം, മനുഷ്യ വികാരങ്ങളുടെ പര്യവേക്ഷണം എന്നിവയ്ക്ക് പേരുകേട്ടതാണ്.
+
+                തൻ്റെ "മനസാക്ഷി" ശ്രദ്ധിക്കുന്ന ഒരു വ്യക്തിയെ കവിത വിവരിക്കുന്നു. പൂക്കൾ യഥാർത്ഥ പൂക്കളല്ല മനസാക്ഷിയുടെ പൂക്കൾ, നീതിയും ദയയും ഉള്ള ഒരു വ്യക്തിയിൽ വളരുന്ന നന്മയെയും ധാർമ്മിക ശക്തിയെയും പ്രതിനിധീകരിക്കുന്നു. ആധുനിക ലോകത്ത് ആളുകൾ അവരുടെ ഉള്ളിലെ സത്യം മറക്കുകയാണെന്ന് അക്കിത്തം സൂചിപ്പിക്കുന്നു. അവരുടെ മനസ്സാക്ഷിയുമായി വീണ്ടും ബന്ധപ്പെടാനും മറ്റുള്ളവരെ പരിപാലിക്കാനും സത്യസന്ധത പുലർത്താനും അദ്ദേഹം വായനക്കാരനെ പ്രേരിപ്പിക്കുന്നു.
+
+                അധികാരത്തിനും പണത്തിനും പ്രശസ്തിക്കും വേണ്ടിയുള്ള ഓട്ടത്തിൽ നമ്മുടെ പോലുള്ള ആളുകൾ പലപ്പോഴും മനസ്സാക്ഷിയെ അവഗണിക്കുന്ന ഇന്നത്തെ സമൂഹത്തിൽ ഈ കവിത വളരെ പ്രസക്തമാണ്. നമ്മുടെ മനസ്സാക്ഷിയെ ശ്രദ്ധിക്കുന്നത് മികച്ച മനുഷ്യരാകാൻ നമ്മെ സഹായിക്കുമെന്ന് അക്കിത്തം പഠിപ്പിക്കുന്നു. നമ്മുടെ പ്രവർത്തനങ്ങൾ സത്യത്താലും സ്നേഹത്താലും നയിക്കപ്പെടുമ്പോൾ, നമ്മുടെ ആന്തരിക ലോകം പൂന്തോട്ടം പോലെ മനോഹരമാകുമെന്ന് അദ്ദേഹം നമ്മോട് പറയുന്നു.
+
+                കവിത വൈകാരികവും ചിന്തോദ്ദീപകവും ആത്മീയവുമാണ്. ചെറിയ കാരുണ്യപ്രവൃത്തികൾ പോലും ഒരാളുടെ ഹൃദയത്തിൻ്റെ പൂന്തോട്ടത്തിൽ വിരിയുന്ന പൂക്കൾ പോലെയാണെന്നതിനെക്കുറിച്ചാണ് ഇത് പറയുന്നത്.
+
+                ലളിതമായ വാക്കുകളിലൂടെയും സൗമ്യമായ ചിത്രങ്ങളിലൂടെയും അക്കിത്തം മാനുഷിക മൂല്യങ്ങളുടെ കാതൽ സ്പർശിക്കുന്നു. നമ്മുടെ ഹൃദയങ്ങളിൽ ദയയുടെയും നന്മയുടെയും പൂക്കൾ വിരിയാൻ, സത്യസന്ധമായും ശുദ്ധമായ മനസ്സാക്ഷിയോടെയും ജീവിക്കാൻ കവിത നമ്മെ ക്ഷണിക്കുന്നു.
+
+                കാലാതീതവും സാർവത്രികവുമായ ഒരു കവിതാശകലമാണിത്, അത് വായനക്കാരെ സ്വയം നോക്കാനും സ്വന്തം ആത്മാവിൻ്റെ സൗന്ദര്യം വീണ്ടും കണ്ടെത്താനും പ്രചോദിപ്പിക്കുന്നതാണ്.
+                പൂക്കൾ പുതുമയുള്ളതും സ്വാഭാവികവുമായതിനാൽ മനോഹരമാകുന്നതുപോലെ, ശുദ്ധവും സത്യസന്ധവുമായ ഹൃദയത്തിൽ നിന്ന് വരുമ്പോൾ ഒരു വ്യക്തിയുടെ പ്രവൃത്തികൾ മനോഹരമാകും. ശരിയായത് ചെയ്യുമ്പോൾ വിമർശനത്തെയോ പരാജയത്തെയോ ഭയപ്പെടരുതെന്നാണ് കവിതയിലൂടെ വളരേ മനോഹരമായി കവി വിവരിച്ചുനൽകുന്നത് . ഒരു നല്ല മനസ്സാക്ഷി നമുക്ക് ശക്തി നൽകുന്നു.
+
+                കവിത സ്വയം പ്രതിഫലനത്തെ പ്രോത്സാഹിപ്പിക്കുകയും ജീവിതത്തിലെ ഏറ്റവും മൂല്യവത്തായ കാര്യം ശുദ്ധവും സമാധാനപരവുമായ ഒരു മിനിറ്റാണെന്ന് നമ്മെ ഓർമ്മിപ്പിക്കുകയും ചെയ്യുന്നു. മനസ്സാക്ഷിയെ വൃത്തിയായി സൂക്ഷിക്കുകയും പൂവിടുകയും ചെയ്യുന്ന രീതിയിൽ ജീവിക്കണം എന്നതാണ് കവി ഈ കവിതയിലൂടെ നമ്മൾ ഓരോരുത്തരിലും ഉണർത്തുന്നത് .കവിതയുടെ ഏറ്റവും വലിയ സന്ദേശവും സമഗ്രതയെ കുറിച്ചാണ് -ആരും കാണുന്നില്ലെങ്കിലും ശരിയായ കാര്യം ചെയ്യുക. മനസാക്ഷിയെ കാണാൻ മറക്കരുത് എന്ന വലിയ സന്ദേശം തന്നെ ആണ് കവി "മനസാക്ഷിയുടെ പൂക്കൾ" എന്ന കവിത സമാഹാരത്തിലൂടെ നമ്മുടെ മുന്നിൽ ചൂണ്ടികാണിക്കുന്നത്..
+
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">✍️ ജുമാന ഷിറിൻ<br>ബി എ ഇംഗ്ലീഷ്<br>രണ്ടാം വർഷം</span>
+              `,
+            },
+          ],
+        },
+      };
+
+      // --- Scroll Reveal Animation ---
+      const revealElements = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+      revealElements.forEach((el) => observer.observe(el));
+
+      // --- Modal Logic ---
+      const modal = document.getElementById("writer-modal");
+      const closeModalBtn = document.getElementById("modal-close");
+      const mtCard = document.getElementById("writer-mt");
+      const akkithamCard = document.getElementById("writer-akkitham");
+
+      const modalName = document.getElementById("modal-name");
+      const modalImg = document.getElementById("modal-img");
+      const modalBio = document.getElementById("modal-bio");
+      const modalWorks = document.getElementById("modal-works");
+
+      const openModal = (writerKey) => {
+        const data = writersData[writerKey];
+        if (!data) return;
+
+        modalName.textContent = data.name;
+        modalImg.src = data.image;
+        modalBio.textContent = data.bio;
+
+        modalWorks.innerHTML = ""; // Clear previous works
+        data.works.forEach((work) => {
+          const workElement = document.createElement("div");
+          workElement.className =
+            "border border-gray-200 rounded-lg overflow-hidden";
+          workElement.innerHTML = `
                       <div class="accordion-header bg-white/60 p-4 cursor-pointer flex justify-between items-center">
                           <h4 class="font-bold text-lg text-secondary-color">${work.title}</h4>
                           <span class="text-accent-color transform transition-transform duration-300">&#9662;</span>
@@ -474,65 +669,65 @@
                           <p class="p-4 text-md leading-relaxed">${work.review}</p>
                       </div>
                   `;
-            modalWorks.appendChild(workElement);
-          });
+          modalWorks.appendChild(workElement);
+        });
 
-          modal.classList.remove("opacity-0", "pointer-events-none");
-          modal.classList.add("open");
-          document.body.style.overflow = "hidden"; // Prevent background scroll
-        };
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        modal.classList.add("open");
+        document.body.style.overflow = "hidden"; // Prevent background scroll
+      };
 
-        const closeModal = () => {
-          modal.classList.add("opacity-0", "pointer-events-none");
-          modal.classList.remove("open");
-          document.body.style.overflow = "auto";
-        };
+      const closeModal = () => {
+        modal.classList.add("opacity-0", "pointer-events-none");
+        modal.classList.remove("open");
+        document.body.style.overflow = "auto";
+      };
 
-        mtCard.addEventListener("click", () => openModal("mt"));
-        akkithamCard.addEventListener("click", () => openModal("akkitham"));
-        closeModalBtn.addEventListener("click", closeModal);
+      mtCard.addEventListener("click", () => openModal("mt"));
+      akkithamCard.addEventListener("click", () => openModal("akkitham"));
+      closeModalBtn.addEventListener("click", closeModal);
 
-        // Close modal on outside click
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            closeModal();
+      // Close modal on outside click
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("open")) {
+          closeModal();
+        }
+      });
+
+      // --- Accordion Logic for Works ---
+      modalWorks.addEventListener("click", function (e) {
+        const header = e.target.closest(".accordion-header");
+        if (!header) return;
+
+        const content = header.nextElementSibling;
+        const arrow = header.querySelector("span");
+
+        // Close all other open accordions
+        this.querySelectorAll(".accordion-content").forEach((item) => {
+          if (item !== content) {
+            item.style.maxHeight = null;
+            const otherArrow =
+              item.previousElementSibling.querySelector("span");
+            if (otherArrow) otherArrow.style.transform = "rotate(0deg)";
           }
         });
 
-        // Close modal with Escape key
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && modal.classList.contains("open")) {
-            closeModal();
-          }
-        });
-
-        // --- Accordion Logic for Works ---
-        modalWorks.addEventListener("click", function (e) {
-          const header = e.target.closest(".accordion-header");
-          if (!header) return;
-
-          const content = header.nextElementSibling;
-          const arrow = header.querySelector("span");
-
-          // Close all other open accordions
-          this.querySelectorAll(".accordion-content").forEach((item) => {
-            if (item !== content) {
-              item.style.maxHeight = null;
-              const otherArrow =
-                item.previousElementSibling.querySelector("span");
-              if (otherArrow) otherArrow.style.transform = "rotate(0deg)";
-            }
-          });
-
-          // Toggle current accordion
-          if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-            arrow.style.transform = "rotate(0deg)";
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            arrow.style.transform = "rotate(180deg)";
-          }
-        });
-      </script>
-    </body>
-  </html>
+        // Toggle current accordion
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          arrow.style.transform = "rotate(0deg)";
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+          arrow.style.transform = "rotate(180deg)";
+        }
+      });
+    </script>
+  </body>
+</html>
