@@ -64,6 +64,17 @@
 
       /* Hero section styling */
       .hero-section {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)
@@ -71,15 +82,13 @@
           url("https://ayyoobigirlsvillage.github.io/kumaralanur/images/hero-background.jpg");
         background-size: cover;
         background-position: center;
-        background-attachment: fixed; /* Parallax effect */
+        z-index: -1;
       }
 
       .hero-title {
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
       }
 
-      .hero-section .font-light {
-      }
 
       /* Animations applied only when hero-section is active */
       .hero-section.hero-active .hero-title {
@@ -212,11 +221,11 @@
   <body class="bg-[var(--bg-color)] text-[var(--text-color)]">
     <!-- Hero Section -->
     <section
-      class="hero-section h-screen w-full flex flex-col items-center justify-center text-white p-4"
+      class="hero-section h-dvh w-full flex flex-col items-center justify-center text-white p-4"
     >
       <div class="text-center">
         <h1
-          class="hero-title text-5xl md:text-8xl lg:text-9xl font-bold leading-tight"
+          class="hero-title text-5xl md:text-8xl lg:text-9xl font-bold"
           style="line-height: 1.2"
         >
           കുമരനെല്ലൂരിനെ<br />വായിക്കുന്നു
@@ -246,7 +255,7 @@
     <main class="container mx-auto px-6 py-16 md:py-24">
       <!-- Section 01: Introduction -->
       <section class="reveal text-center max-w-4xl mx-auto mb-20">
-        <h2 class="text-3xl md:text-4xl text-primary-color mb-6">
+        <h2 class="text-3xl md:text-4xl text-[var(--primary-color)] mb-6">
           മലയാളത്തിൻ്റെ ഇതിഹാസ ഭൂമി
         </h2>
         <p class="text-lg md:text-xl leading-relaxed">
@@ -265,7 +274,7 @@
 
       <!-- Section 02: Book Covers Gallery -->
       <section class="reveal mb-20">
-        <h2 class="text-3xl md:text-4xl text-center text-primary-color mb-10">
+        <h2 class="text-3xl md:text-4xl text-center text-[var(--primary-color)] mb-10">
           തിരഞ്ഞെടുത്ത പുസ്തകങ്ങൾ
         </h2>
         <div
@@ -277,6 +286,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-manju.jpg"
               alt="മഞ്ഞ്"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">മഞ്ഞ്</p>
           </div>
@@ -285,6 +295,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-nalukettu.jpg"
               alt="നാലുകെട്ട്"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">നാലുകെട്ട്</p>
           </div>
@@ -293,6 +304,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-arabipponnu.jpg"
               alt="അറബിപ്പൊന്ന്"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">അറബിപ്പൊന്ന്</p>
           </div>
@@ -301,6 +313,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-kalam.jpg"
               alt="കാലം"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">കാലം</p>
           </div>
@@ -309,6 +322,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-vilapayathra.jpg"
               alt="വിലാപയാത്ര"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">വിലാപയാത്ര</p>
           </div>
@@ -318,6 +332,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-vennakkallinte-katha.jpg"
               alt="വെണ്ണക്കല്ലിന്റെ കഥ"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">വെണ്ണക്കല്ലിന്റെ കഥ</p>
           </div>
@@ -326,6 +341,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-manasakshiyude-pookkal.jpg"
               alt="മനസാക്ഷിയുടെ പൂക്കൾ"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">മനസാക്ഷിയുടെ പൂക്കൾ</p>
           </div>
@@ -334,6 +350,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-irupatham.jpg"
               alt="ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം</p>
           </div>
@@ -342,6 +359,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-kalikkottilil.jpg"
               alt="കളിക്കൊട്ടിലിൽ"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">കളിക്കൊട്ടിലിൽ</p>
           </div>
@@ -350,6 +368,7 @@
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-itinju-polinja-lokam.jpg"
               alt="ഇടിഞ്ഞുപൊളിഞ്ഞ ലോകം"
               class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+              loading="lazy"
             />
             <p class="text-sm mt-2 font-semibold">ഇടിഞ്ഞുപൊളിഞ്ഞ ലോകം</p>
           </div>
@@ -357,7 +376,7 @@
 
       <!-- Section 03 & 04: Writers -->
       <section class="reveal mb-20">
-        <h2 class="text-3xl md:text-4xl text-center text-primary-color mb-10">
+        <h2 class="text-3xl md:text-4xl text-center text-[var(--primary-color)] mb-10">
           ഇതിഹാസങ്ങളുടെ ശില്പികൾ
         </h2>
         <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
@@ -369,16 +388,17 @@
             <img
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-mt.jpg"
               alt="എം.ടി വാസുദേവൻ നായർ"
-              class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-accent-color object-cover"
+              class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-[var(--accent-color)] object-cover"
+              loading="lazy"
             />
-            <h3 class="text-2xl font-bold text-secondary-color mb-2">
+            <h3 class="text-2xl font-bold text-[var(--secondary-color)] mb-2">
               എം.ടി വാസുദേവൻ നായർ
             </h3>
             <p class="mb-4">
               മലയാള സാഹിത്യത്തിലെ ഇതിഹാസകാരൻ. നോവലിസ്റ്റ്, തിരക്കഥാകൃത്ത്,
               സംവിധായകൻ എന്നീ നിലകളില്‍ പ്രശസ്തന്‍.
             </p>
-            <span class="text-accent-color text-xl font-bold flex items-center justify-center mt-4">
+            <span class="text-[var(--accent-color)] text-xl font-bold flex items-center justify-center mt-4">
               Click here
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -394,16 +414,17 @@
             <img
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-akkitham.jpg"
               alt="അക്കിത്തം അച്യുതൻ നമ്പൂതിരി"
-              class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-accent-color object-cover"
+              class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-[var(--accent-color)] object-cover"
+              loading="lazy"
             />
-            <h3 class="text-2xl font-bold text-secondary-color mb-2">
+            <h3 class="text-2xl font-bold text-[var(--secondary-color)] mb-2">
               അക്കിത്തം അച്യുതൻ നമ്പൂതിരി
             </h3>
             <p class="mb-4">
               ജ്ഞാനപീഠം പുരസ്കാര ജേതാവായ മഹാനായ കവി. മാനവികതയുടെയും
               സ്നേഹത്തിൻ്റെയും സന്ദേശങ്ങൾ പകർന്ന കവിതകൾ.
             </p>
-            <span class="text-accent-color text-xl font-bold flex items-center justify-center mt-4">
+            <span class="text-[var(--accent-color)] text-xl font-bold flex items-center justify-center mt-4">
               Click here
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -415,7 +436,7 @@
 
       <!-- Section 05: Summary -->
       <section class="reveal text-center max-w-4xl mx-auto mb-20">
-        <h2 class="text-3xl md:text-4xl text-primary-color mb-6">
+        <h2 class="text-3xl md:text-4xl text-[var(--primary-color)] mb-6">
           വായനയുടെ ലോകം
         </h2>
         <p class="text-lg md:text-xl leading-relaxed">
@@ -429,7 +450,7 @@
     <!-- Section 06 & 07: Footer -->
     <footer class="footer-animated text-white py-12">
       <div class="container mx-auto text-center px-6">
-        <h3 class="text-2xl text-accent-color mb-4">നന്ദി</h3>
+        <h3 class="text-2xl text-[var(--accent-color)] mb-4">നന്ദി</h3>
         <p class="mb-6 max-w-2xl mx-auto text-xl leading-relaxed">
           ജൂൺ 19 വായനാ ദിനത്തിൽ അയ്യൂബി ഗേൾസ് വില്ലേജിനൊപ്പം ഈ രചനയുടെ ലോകത്ത്
           ഒന്നിച്ചു നടന്നതിന് ഹൃദയം നിറഞ്ഞ നന്ദി! നിങ്ങളുടെ വിലയേറിയ വായനയ്ക്കും
@@ -441,8 +462,8 @@
           വായനയുടെ ലോകത്തേക്ക് കൂടുതൽ പേരെ ആകർഷിക്കാനും അറിവ് പങ്കുവെക്കാനും
           ഇത് സഹായകമാകുമെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു.
         </p>
-        <div class="border-t border-accent-color w-1/4 mx-auto my-6"></div>
-        <p class="text-2xl md:text-3xl font-extrabold text-accent-color tracking-wide">Ayyoobi Girls Village</p>
+        <div class="border-t border-[var(--accent-color)] w-1/4 mx-auto my-6"></div>
+        <p class="text-2xl md:text-3xl font-extrabold text-[var(--accent-color)] tracking-wide">Ayyoobi Girls Village</p>
         <p class="text-sm mt-2">Parakkulam, Padinjarangadi, Palakkad, Kerala-679552</p>
       </div>
     </footer>
@@ -463,27 +484,28 @@
                 id="modal-img"
                 src=""
                 alt="Writer"
-                class="w-20 h-20 rounded-full border-4 border-accent-color mr-6 object-cover"
+                class="w-20 h-20 rounded-full border-4 border-[var(--accent-color)] mr-6 object-cover"
+                loading="lazy"
               />
               <div>
                 <h2
                   id="modal-name"
-                  class="text-3xl md:text-4xl font-bold text-primary-color"
+                  class="text-3xl md:text-4xl font-bold text-[var(--primary-color)]"
                 ></h2>
-                <p id="modal-bio" class="text-md text-secondary-color"></p>
+                <p id="modal-bio" class="text-md text-[var(--secondary-color)]"></p>
               </div>
             </div>
             <button
               id="modal-close"
-              class="text-3xl text-text-color hover:text-primary-color"
+              class="text-3xl text-[var(--text-color)] hover:text-[var(--primary-color)]"
             >
-              &times;
+              ×
             </button>
           </div>
 
           <!-- Modal Body: Works List -->
           <div>
-            <h3 class="text-2xl text-secondary-color font-bold mb-4">
+            <h3 class="text-2xl text-[var(--secondary-color)] font-bold mb-4">
               പ്രധാന കൃതികളും നിരൂപണങ്ങളും
             </h3>
             <div id="modal-works" class="space-y-3">
@@ -507,12 +529,13 @@
             src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/poster.jpg"
             alt="Welcome Poster"
             class="w-full h-auto rounded-lg"
+            loading="lazy"
           />
           <button
             id="poster-modal-close"
             class="absolute top-2 right-2 text-white text-4xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-75 transition-all duration-200"
           >
-            &times;
+            ×
           </button>
         </div>
       </div>
@@ -742,11 +765,11 @@
             "border border-gray-200 rounded-lg overflow-hidden";
           workElement.innerHTML = `
                       <div class="accordion-header bg-white/60 p-4 cursor-pointer flex justify-between items-center">
-                          <h4 class="font-bold text-lg text-secondary-color">${work.title}</h4>
-                          <span class="text-accent-color transform transition-transform duration-300">&#9662;</span>
+                          <h4 class="font-bold text-lg text-[var(--secondary-color)]">${work.title}</h4>
+                          <span class="text-[var(--accent-color)] transform transition-transform duration-300">▾</span>
                       </div>
                       <div class="accordion-content bg-white/30">
-                          <p class="p-4 text-md leading-relaxed">${work.review}</p>
+                          <div class="p-4 text-md leading-relaxed">${work.review}</div>
                       </div>
                   `;
           writerModalWorks.appendChild(workElement);
@@ -827,8 +850,8 @@
         document.querySelector(".hero-section").classList.add("hero-active");
       };
 
-      // Show poster modal on page load
-      window.addEventListener("load", showPosterModal);
+      // Show poster modal on DOMContentLoaded for faster perceived load time
+      document.addEventListener("DOMContentLoaded", showPosterModal);
 
       // Close poster modal
       posterModalCloseBtn.addEventListener("click", hidePosterModal);
