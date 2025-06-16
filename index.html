@@ -75,10 +75,17 @@
 
       .hero-title {
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-        animation: fadeInDown 1.5s 0.5s ease-out backwards;
       }
 
       .hero-section .font-light {
+      }
+
+      /* Animations applied only when hero-section is active */
+      .hero-section.hero-active .hero-title {
+        animation: fadeInDown 1.5s 0.5s ease-out backwards;
+      }
+
+      .hero-section.hero-active .font-light {
         animation: fadeInUp 1.5s 1s ease-out backwards;
       }
 
@@ -247,7 +254,7 @@
           സുരേന്ദ്രനും നടന്നു പോയ വഴികൾ. ലോകവായനയിൽ ഇടം പിടിച്ച നിരവധി
           അവാർഡുകൾക്ക് ജന്മം നൽകിയ മണ്ണ്.
         </p>
-<p class="text-lg md:text-xl leading-relaxed mt-4">
+        <p class="text-lg md:text-xl leading-relaxed mt-4">
           ഈ മണ്ണിന്റെ സാഹിത്യപരമായ പാരമ്പര്യം വെളിപ്പെടുത്തുന്ന ഈ വരികൾ, കുമരനെല്ലൂരിന്റെ സമൃദ്ധമായ സാംസ്കാരിക ഇടപെടലുകളുടെ സാക്ഷ്യപത്രമാണ്. മലയാള സാഹിത്യത്തെ ആഴത്തിൽ സ്വാധീനിച്ച നിരവധി കൃതികൾക്കും കൃത്തുക്കൾക്കും ഈ പ്രദേശം ആധാരമായിട്ടുണ്ട്. വായനയുടെ ശക്തിയിൽ വിശ്വസിച്ച ഈ മണ്ണിന്റെ പുത്രന്മാരുടെയും പുത്രിമാരുടെയും സംഭാവനകൾ, ഭാഷയുടെ വളർച്ചയ്ക്കും സാമൂഹിക ബോധനത്തിനും വലിയ വഴികാട്ടികളായി മാറിയിട്ടുണ്ട്.
         </p>
         <p class="text-lg md:text-xl leading-relaxed mt-4">
@@ -261,61 +268,90 @@
           തിരഞ്ഞെടുത്ത പുസ്തകങ്ങൾ
         </h2>
         <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
         >
           <!-- M.T. Vasudevan Nair Books -->
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-manju.jpg"
-            alt="Book Cover for Manju"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-nalukettu.jpg"
-            alt="Book Cover for Nalukettu"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-arabipponnu.jpg"
-            alt="Book Cover for Arabipponnu"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-kalam.jpg"
-            alt="Book Cover for Kalam"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-vilapayathra.jpg"
-            alt="Book Cover for Vilapayathra"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-manju.jpg"
+              alt="മഞ്ഞ്"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">മഞ്ഞ്</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-nalukettu.jpg"
+              alt="നാലുകെട്ട്"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">നാലുകെട്ട്</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-arabipponnu.jpg"
+              alt="അറബിപ്പൊന്ന്"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">അറബിപ്പൊന്ന്</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-kalam.jpg"
+              alt="കാലം"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">കാലം</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-vilapayathra.jpg"
+              alt="വിലാപയാത്ര"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">വിലാപയാത്ര</p>
+          </div>
           <!-- Akkitham Books -->
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-vennakkallinte-katha.jpg"
-            alt="Book Cover for Vennakkallinte Katha"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-manasakshiyude-pookkal.jpg"
-            alt="Book Cover for Manasakshiyude Pookkal"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-irupatham.jpg"
-            alt="Book Cover for Irupatham Noottandinte Ithihasam"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-kalikkottilil.jpg"
-            alt="Book Cover for Kalikkottilil"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
-          <img
-            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-itinju-polinja-lokam.jpg"
-            alt="Book Cover for Itinju Polinja Lokam"
-            class="book-cover rounded-lg shadow-lg w-full"
-          />
-        </div>
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-vennakkallinte-katha.jpg"
+              alt="വെണ്ണക്കല്ലിന്റെ കഥ"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">വെണ്ണക്കല്ലിന്റെ കഥ</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-manasakshiyude-pookkal.jpg"
+              alt="മനസാക്ഷിയുടെ പൂക്കൾ"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">മനസാക്ഷിയുടെ പൂക്കൾ</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-irupatham.jpg"
+              alt="ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-kalikkottilil.jpg"
+              alt="കളിക്കൊട്ടിലിൽ"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">കളിക്കൊട്ടിലിൽ</p>
+          </div>
+          <div class="text-center">
+            <img
+              src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/book-itinju-polinja-lokam.jpg"
+              alt="ഇടിഞ്ഞുപൊളിഞ്ഞ ലോകം"
+              class="book-cover rounded-lg shadow-lg w-full aspect-[9/16] object-cover"
+            />
+            <p class="text-sm mt-2 font-semibold">ഇടിഞ്ഞുപൊളിഞ്ഞ ലോകം</p>
+          </div>
       </section>
 
       <!-- Section 03 & 04: Writers -->
@@ -332,7 +368,7 @@
             <img
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-mt.jpg"
               alt="എം.ടി വാസുദേവൻ നായർ"
-              class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-accent-color"
+              class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-accent-color object-cover"
             />
             <h3 class="text-2xl font-bold text-secondary-color mb-2">
               എം.ടി വാസുദേവൻ നായർ
@@ -357,7 +393,7 @@
             <img
               src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/writer-akkitham.jpg"
               alt="അക്കിത്തം അച്യുതൻ നമ്പൂതിരി"
-              class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-accent-color"
+              class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-accent-color object-cover"
             />
             <h3 class="text-2xl font-bold text-secondary-color mb-2">
               അക്കിത്തം അച്യുതൻ നമ്പൂതിരി
@@ -399,7 +435,7 @@
           പിന്തുണയ്ക്കും ഞങ്ങൾ കടപ്പെട്ടിരിക്കുന്നു. വീണ്ടും കാണാം!
         </p>
         <p class="mb-6 max-w-2xl mx-auto text-lg leading-relaxed">
-          ഈ വെർച്വൽ പുസ്തക പ്രദർശനം കുമരനെല്ലൂരിന്റെ സാഹിത്യ പാരമ്പര്യത്തെയും
+          ഈ വെർച്വൽ പുസ്തക പ്രദർശനം കുമരനെല്ലൂരിന്റെ സാഹിത്യ പാരമ്പര്യം
           അവിടുത്തെ പ്രതിഭകളെയും ആദരിക്കുന്നതിനുള്ള ഞങ്ങളുടെ എളിയ ശ്രമമാണ്.
           വായനയുടെ ലോകത്തേക്ക് കൂടുതൽ പേരെ ആകർഷിക്കാനും അറിവ് പങ്കുവെക്കാനും
           ഇത് സഹായകമാകുമെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു.
@@ -426,7 +462,7 @@
                 id="modal-img"
                 src=""
                 alt="Writer"
-                class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-accent-color mr-6"
+                class="w-20 h-20 rounded-full border-4 border-accent-color mr-6 object-cover"
               />
               <div>
                 <h2
@@ -457,6 +493,30 @@
       </div>
     </div>
 
+    <!-- Poster Modal -->
+    <div
+      id="poster-modal"
+      class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-[100] opacity-0 pointer-events-none"
+    >
+      <div
+        class="modal-content bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden transform scale-90 transition-all duration-300 ease-out"
+      >
+        <div class="relative">
+          <img
+            src="https://ayyoobigirlsvillage.github.io/kumaralanur/images/poster.jpg"
+            alt="Welcome Poster"
+            class="w-full h-auto rounded-lg"
+          />
+          <button
+            id="poster-modal-close"
+            class="absolute top-2 right-2 text-white text-4xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-75 transition-all duration-200"
+          >
+            &times;
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script>
       // --- Data for Writers ---
       const writersData = {
@@ -471,7 +531,7 @@
               review: `
                 തന്റെ മാന്ത്രിക രചനകൊണ്ട് വായനക്കാരുടെ മനസ്സിൽ മയങ്ങാൻ കഴിയുന്ന മലയാളക്കരയുടെ പ്രശസ്ത എഴുത്തുകാരൻ എം.ടി.വാസുദേവൻ നായരുടെ പ്രദാന കൃതികളിൽ ഒന്നാണ് മഞ്ഞ് എന്ന ഈ നോവൽ. അവ്യക്തതയിലെ വ്യക്തതയും അപൂർണതയിലെ പൂർണ്ണതയുമുള്ള ഒരു ഭാവഗാനം.ഭൂതകാത്തിന്റെ ശബ്ദങ്ങളും വർണ്ണങ്ങളും വർത്തമാനത്തിലേക്ക് തിരിച്ചുവരുന്ന കവിത. കാലത്തിന്റെ ചലനത്തിലും നിശ്ചലതയിലും കാത്തിരിക്കുന്ന മനുഷ്യരും പ്രകൃതിയും. ''വരും വരാതിരിക്കില്ല" എന്ന പ്രതീക്ഷയെ മുറുകെ പിടിച്ച് മനസ്സിന്റെ താഴ്‌വരയിൽ ഉരുകിയുറയുന്ന മഞ്ഞുകട്ടകളുടെ കാത്തിരിപ്പിന്റെ അനുഭവം. നെെനിറ്റാളിന്റെ ലാവണ്യത്തിന്റെയും, കേന്ദ്രകഥാപാത്രമായ വിമല യുടെ കാത്തിരിപ്പിന്റെയും,നോവലിന്റെ ഹൃദയമായ നിശബ്ദതയുടെയും വർണനകളിൽ നാം ഈ കാവ്യാത്മകതയെ ആസ്വദിക്കുന്നു.
 
-                സഞ്ചരികൾ എത്തിയില്ലങ്കിൽ നെെനിറ്റാൾ ശൂന്യമാണ്.എന്നാൽ സഞ്ചരികളുടെ സീസണുകളിൽ ഉറക്കച്ചടവിൽ നിന്നുമുണർന്ന് നെെനിറ്റാൽ കൂടുതൽ സുന്തരിയാവുന്നു.ഓരോ സീസണും അവസാനിക്കുമ്പോൾ അടുത്തകൊല്ലം സഞ്ചരികളെ വരവേൽക്കുമെന്ന പ്രതിക്ഷയിൽ ആ നാട് കാത്തിരിക്കുന്നു. അതുപോലെ ആ കുമായൂൺ കുന്നുകൾക്ക് താഴെ നെെനിറ്റാളിന്റെ താഴ്‌വരയിൽ വരും വരാതിരിക്കില്ലെന്ന പ്രതിക്ഷയുമായി ''സുധീർ കുമാർ മിശ്ര" എന്ന തന്റെ പ്രിയതമനെ കാത്തിരിക്കുകയാണ് വിമല.തന്റെ വിട്ടിലെ അസ്വസ്ഥതമായ സാഹചര്യങ്ങളിൽ നിന്നും മോചനമാഗ്രഹിച്ച് കുമയൂൺ പ്രദേശത്തെ നെെനിറ്റാളിലെത്തി അവിടുത്തെ ബോർഡിങ്ങ് സ്കൂളിലെ അധ്യാപികയായ "വിമല ദേവി"യുടെ അവധിക്കാലമാണ് മഞ്ഞിന്റെ പശ്ചാത്തലം. എല്ലാ വിദ്യാർത്ഥികളും ജീവനക്കാരും വേനൽ അവധിയുടെ തുടക്കത്തിൽ സ്ക്കുൾ വിടുന്നുണ്ടെങ്കിലും വിമല അവിടെ തന്നെ നിൽക്കുന്നു.കിടപ്പിലായ വിമലയുടെ പിതാവ് കുട്ടികൾക്ക് സ്നേഹമോ അടുപ്പമോ തോന്നാത്ത കർക്കശക്കാരനും, ഭയപ്പെടുത്തുന്നവനും ആയിരുന്നു.അമ്മ അടുത്തുളള ഓരാളുമായി രഹസ്യമായ കൂടിക്കാഴ്ചയിൽ മുഴുകിയിരിക്കുന്നു .സ്നേഹോഷ്മളമായ ഒരു കുടുംബപശ്ചാത്തലം ഇല്ലഞ്ഞതിനാലാവാം വിമല നാട്ടിലേക്ക് പോകാതെ അവധിക്കാലം അവിടെ ചിലവഴിക്കുന്നത്.
+                സഞ്ചരികൾ എത്തിയില്ലങ്കിൽ നെെനിറ്റാൾ ശൂന്യമാണ്.എന്നാൽ സഞ്ചരികളുടെ സീസണുകളിൽ ഉറക്കച്ചടവിൽ നിന്നുമുണർന്ന് നെെനിറ്റാൽ കൂടുതൽ സുന്തരിയാവുന്നു.ഓരോ സീസണും അവസാനിക്കുമ്പോൾ അടുത്തകൊല്ലം സഞ്ചരികളെ വരവേൽക്കുമെന്ന പ്രതിക്ഷയിൽ ആ നാട് കാത്തിരിക്കുന്നു. അതുപോലെ ആ കുമായൂൺ കുന്നുകൾക്ക് താഴെ നെെനിറ്റാളിന്റെ താഴ്‌വരയിൽ വരും വരാതിരിക്കില്ലെന്ന പ്രതിക്ഷയുമായി ''സുധീർ കുമാർ മിശ്ര" എന്ന തന്റെ പ്രിയതമനെ കാത്തിരിക്കുകയാണ് വിമല.തന്റെ വിട്ടിലെ അസ്വസ്ഥതമായ സാഹചര്യങ്ങളിൽ നിന്നും മോചനാഗ്രഹിച്ച് കുമയൂൺ പ്രദേശത്തെ നെെനിറ്റാളിലെത്തി അവിടുത്തെ ബോർഡിങ്ങ് സ്കൂളിലെ അധ്യാപികയായ "വിമല ദേവി"യുടെ അവധിക്കാലമാണ് മഞ്ഞിന്റെ പശ്ചാത്തലം. എല്ലാ വിദ്യാർത്ഥികളും ജീവനക്കാരും വേനൽ അവധിയുടെ തുടക്കത്തിൽ സ്ക്കുൾ വിടുന്നുണ്ടെങ്കിലും വിമല അവിടെ തന്നെ നിൽക്കുന്നു.കിടപ്പിലായ വിമലയുടെ പിതാവ് കുട്ടികൾക്ക് സ്നേഹമോ അടുപ്പമോ തോന്നാത്ത കർക്കശക്കാരനും, ഭയപ്പെടുത്തുന്നവനും ആയിരുന്നു.അമ്മ അടുത്തുളള ഓരാളുമായി രഹസ്യമായ കൂടിക്കാഴ്ചയിൽ മുഴുകിയിരിക്കുന്നു .സ്നേഹോഷ്മളമായ ഒരു കുടുംബപശ്ചാത്തലം ഇല്ലഞ്ഞതിനാലാവാം വിമല നാട്ടിലേക്ക് പോകാതെ അവധിക്കാലം അവിടെ ചിലവഴിക്കുന്നത്.
 
                 അവിടെവെച്ചു വിമല "ബുദ്ധു''എന്ന ഒരാളെ കണ്ടുമുട്ടുന്നു.ഇതുവരെയും കണ്ടിട്ടില്ലാത്ത 'വെളളക്കാരനെ'ന്ന തന്റെ പിതാവിനെ കാത്തിരിക്കുകയാണ് ബുദ്ധു എന്ന ആ തോണിക്കാരൻ. മരണം അരികിൽ കാത്തുനിൽക്കുമ്പോൾ ഒരു വെെകുന്നേരം കടം ചോദിച്ചുകൊണ്ട് സ്നേഹത്തിന്റെ നേർത്തൊരിറ്റുമായി വിമലക്കരികിലേക്കെത്തുന്ന "സർദാർജി'' എന്ന ഒരു വ്യത്യസ്തമായ കഥാപാത്രം.
 
@@ -487,7 +547,7 @@
               review: `
                 എം. ടി. വാസുദേവൻ നായർ, എൻ. പി. മുഹമ്മദ്‌ എന്നിവർ എഴുതിയ "അറബിപ്പൊന്ന്" 1960-ൽ പ്രസിദ്ധീകരിച്ച ഒരു ശ്രദ്ധേയമായ മലയാള നോവലാണ്. ഇത് മലയാളത്തിലെ ആദ്യത്തെ കൂട്ടുരചനയായും, ഇന്ത്യയിലാദ്യമായി രണ്ടുപേർ ചേർന്ന് എഴുതിയ നോവലായും കണക്കാക്കപ്പെടുന്നു.1960-ൽ പ്രസിദ്ധീകരിച്ച ഈ കൃതി ഗൾഫ് സ്വർണ്ണക്കടത്തിന്റെ പശ്ചാത്തലത്തിൽ കേരളീയ സമൂഹത്തിലെ താൽപര്യങ്ങൾ, ആഗ്രഹങ്ങൾ, അഴിമതി, ലാഭം എന്നിവയെ വിശകലനം ചെയ്യുന്നു. കഥയുടെ പശ്ചാത്തലവും ഭാഷയും യാഥാർത്ഥ്യബോധം നിറഞ്ഞതും ശക്തവുമാണ്.
 
-                എന്താണ് ഈ നോവലിൽ പറയുന്ന കഥ എന്ന് വിലയിരുത്താൻ നോക്കുന്നത് ഒരു വലിയ സാഹസമൊന്നുമല്ല. എക്കാലവും മനുഷ്യനെ ക്രൂരനും അത്യാഗ്രഹിയും കുറവാളിയും ആകുവാൻ സ്വർണമെന്ന മഞ്ഞലോഹത്തിന് കഴിഞ്ഞിട്ടുണ്ട്..കഥയുടെ കേന്ദ്രപാത്രമായ കോയ ഒരു സ്വർണ്ണക്കടത്തുകാരനാണ്. അറബ് കപ്പലുകൾ വഴി വരുന്ന വിലപ്പെട്ട സാധനങ്ങൾ കൈവശംവച്ച്, സാമ്പത്തിക നേട്ടം നേടുകയാണ് അവന്റെ ലക്ഷ്യം. എന്നാൽ ഈ ലോകം കൊടുക്കുന്ന ആഡംബരവും ആവേശവും അതിനോട് ചേര്‍ന്നുള്ള ധ്രുവവിപരീതമായ ശൂന്യതയും കോയയുടെ ജീവിതം വളരെ പ്രകാശവൽക്കരിക്കുന്നു. കോയയുടെ മുഖേന, മനുഷ്യൻ എങ്ങനെ സ്വാർത്ഥതയുടെയും ആഗ്രഹങ്ങളുടെയും പിടിയിൽ മാഞ്ഞുപോകുന്നുവെന്ന് നോവൽ കാണിക്കുന്നു.
+                എന്താണ് ഈ നോവലിൽ പറയുന്ന കഥ എന്ന് വിലയിരുത്താൻ നോക്കുന്നത് ഒരു വലിയ സാഹസമൊന്നുമല്ല. എക്കാലവും മനുഷ്യനെ ക്രൂരനും അത്യാഗ്രഹിയും കുറവാളിയും ആകുവാൻ സ്വർണമെന്ന മഞ്ഞലോഹത്തിന് കഴിഞ്ഞിട്ടുണ്ട്..ക കഥയുടെ കേന്ദ്രപാത്രമായ കോയ ഒരു സ്വർണ്ണക്കടത്തുകാരനാണ്. അറബ് കപ്പലുകൾ വഴി വരുന്ന വിലപ്പെട്ട സാധനങ്ങൾ കൈവശംവച്ച്, സാമ്പത്തിക നേട്ടം നേടുകയാണ് അവന്റെ ലക്ഷ്യം. എന്നാൽ ഈ ലോകം കൊടുക്കുന്ന ആഡംബരവും ആവേശവും അതിനോട് ചേര്‍ന്നുള്ള ധ്രുവവിപരീതമായ ശൂന്യതയും കോയയുടെ ജീവിതം വളരെ പ്രകാശവൽക്കരിക്കുന്നു. കോയയുടെ മുഖേന, മനുഷ്യൻ എങ്ങനെ സ്വാർത്ഥതയുടെയും ആഗ്രഹങ്ങളുടെയും പിടിയിൽ മാഞ്ഞുപോകുന്നുവെന്ന് നോവൽ കാണിക്കുന്നു.
 
                 കോയയുടെ ജീവിതത്തിൽ കാണുന്ന ആഡംബരവും അതിനൊപ്പം അടിയന്തരമായി വരുന്നത് പോലെയുള്ള തകർച്ചയും നോവലിന്റെ ഉള്ളടക്കത്തിൽ ആഴമേറും. അദ്ദേഹത്തിന്റെ ലോകദർശനം "പൊന്ന്, കലർപ്പില്ലാത്ത തനി പൊന്ന്… ഇന്ത്യക്കാർ അതിന്റെ ആരാധകരാണ്” എന്ന വാക്യത്തിൽ പൂർണ്ണമായി പ്രതിഫലിക്കുന്നു.സ്വർണ്ണത്തിന്റെ ആകർഷണവും അതിന് പിന്നിൽ ഒളിഞ്ഞിരിക്കുന്ന ദുരന്തവും ഈ വാക്യത്തിൽ നിറഞ്ഞു നിൽക്കുന്നു.
 
@@ -511,29 +571,47 @@
             {
               title: "കാലം",
               review: `
-                കഥയല്ല, ജീവിതം തന്നെയാണ്. ''കാലം'' വായനയുടെ അതിരുകൾ താണ്ടുമ്പോൾ
+                കഥയല്ല, ജീവിതം തന്നെയാണ്.!
+                ''കാലം'' വായനയുടെ അതിരുകൾ താണ്ടുമ്പോൾ
 
                 വിജയിക്കാനായി മുന്നോട്ട് പോയപ്പോൾ സ്വന്തം ആത്മാവിനെയാണ് ഇല്ലാതെയാക്കിയത് എന്ന് തിരിച്ചറിയുമ്പോഴേക്കും കാലടിയിലെ അവസാന തരി മണ്ണും കൊഴിഞ്ഞു പോയത് കണ്ട്, വീണ്ടുമൊരു അവസരത്തിനായി യാചിക്കുന്ന മനുഷ്യ ജീവിതത്തിന്റെ കഥയാണ് "കാലം"
+
+                കാലം എന്നത് ഒരു പ്രഹേളികയാണ്. മനസ്സിലാക്കാന്‍ ശ്രമിക്കുമ്പോള്‍ വഴുതിപ്പോകുന്ന ഒരു ആശയസങ്കീര്‍ണ്ണതയും, പൂര്‍ണമായി നമുക്ക് വഴങ്ങി തരാത്തതുമാണ്. എം.ടി 300-ലധികം പേജുകളില്‍ ഇടപഴകിക്കൊണ്ട് വരച്ചുകാണിച്ച ദൃശ്യങ്ങളും സംഭവങ്ങളും, കാലത്തിന്റെ തത്ത്വവും, ദുരൂഹതയുമാണ്.
 
                 "കാലം" കഥ പറയുന്നത് സേതുവിന്റെ ജീവിതത്തിലൂടെയാണ്.
                 ഇല്ലായ്മയുടെയും ദാരിദ്രത്തിന്റെയുമിടയിലൂടെ നടന്ന കൗമാരക്കാരൻ വിദ്യഭ്യാസത്തിലൂടെ ഉദ്യാഗ്യക്കാരനായി മാറിയ സേതു. യാതൊരു ഉപാധികളുമില്ലാതെ, അവകാശത്തോടെ ഒന്ന് നോക്കുക പോലും ചെയ്യാതെ സേതുവിനെ മാത്രം സ്നേഹിച്ച വടക്കേതിലെ സുമിത്രയുടെയും കഥയാണിത്.
 
-                കാലം എന്നത് ഒരു പ്രഹേളികയാണ്. മനസ്സിലാക്കാന്‍ ശ്രമിക്കുമ്പോള്‍ വഴുതിപ്പോകുന്ന ഒരു ആശയസങ്കീര്‍ണ്ണതയും, പൂര്‍ണമായി നമുക്ക് വഴങ്ങി തരാത്തതുമാണ്. എം.ടി 300-ലധികം പേജുകളില്‍ ഇടപഴകിക്കൊണ്ട് വരച്ചുകാണിച്ച ദൃശ്യങ്ങളും സംഭവങ്ങളും, കാലത്തിന്റെ തത്ത്വവും, ദുരൂഹതയുമാണ്.
-
                 കാലത്തിന്റെ മറുകരയെ തേടിയ മനുഷ്യന്റെ വൃഥാ പരിശ്രമങ്ങളാണ് കഥയുടെ പ്രമേയം. തകര്‍ന്നു വീഴാന്‍ ഇടയായ ഒരു നാലുകെട്ട്, അതിന്റെ സമൃദ്ധിയുടെ ഓര്‍മകളില്‍ കുടുങ്ങി കാലത്തെ അതിജീവിക്കാന്‍ ശ്രമിക്കുന്ന ഒരു തറവാട്. അതിനോട് സമാന്തരമായി പുതിയ കാലത്തിലേക്കു കുതിക്കാന്‍ ശ്രമിക്കുന്ന ഒരു ആണ്‍കുട്ടി.
                 തന്റെ യൗവനത്തിലേക്ക് കടക്കുന്ന വഴിയിൽ കാലം എന്നും പിന്തുടരുന്നു. ഈ യാത്രയിലെ വൃദ്ധിക്ഷയങ്ങള്‍ ഒരു പുഴയുടെ ഉയര്‍ച്ചതാഴ്ചകളിലൂടെ പകര്‍ത്താനുള്ള എം. ടി.യുടെ ശ്രമം ഈ കൃതിയെ സങ്കീര്‍ണ്ണവും സമ്പുഷ്ടവുമായതായി മാറ്റുന്നു.
 
-                കാലം എന്ന കൃതി, മനുഷ്യനായി കടന്നുപോകുന്ന ഓരോ ഘട്ടത്തിന്റെയും അനിശ്ചിതത്വങ്ങളും ആശങ്കകളും, അതോടൊപ്പം ഉള്ള പ്രതീക്ഷകളും പ്രണയങ്ങളും അതീവ ദൃശ്യമായി വരച്ചു കാട്ടുന്നു. ഇത് വായനക്കാരനെ കാലത്തോളം നയിക്കുന്നതും, കാലത്തേക്കുള്ള ഭാവനാപരമായ ഒരു അന്വേഷണമാക്കുന്നതുമാണ്.
-
                 ഒരു തലമുറയല്ല, ഒട്ടനവധി തലമുറകൾ ''കാലം''എന്ന നോവലിലെ സേതുവിൽ സ്വയം കണ്ടു. സുമിത്രയെ പരിചയപ്പെട്ടു, തങ്കമണിയെ സ്നേഹിച്ചു, മിസ്സിസ് മേനോനെ സഹതാപത്തോടെയും അസൂയയോടെയും നോക്കി. കഥയുടെ പശ്ചാത്തലമായി പുഴയേക്കാൾ ശക്തമായി ഒഴുകുന്നത് ജീവിതത്തിന്റെ തന്നെ ഒഴുക്കായിരുന്നു. അതിലിറങ്ങി കയറി ഓരോരുത്തരും സ്വന്തം അനുഭവങ്ങളിൽ വീണ്ടും ജീവിച്ചു.
 
-                കേന്ദ്ര സാഹിത്യ അക്കാദമി പുരസ്‌കാരം നേടിയ "കാലം" എം.ടിയുടെ സാഹിത്യ ജീവിതത്തിലെ പ്രധാന കൃതികളിലൊന്നാണ്. മനോഹരമായ ഭാഷ, ഗൗരവമേറിയ ആഖ്യാനം, കഥാപാത്രങ്ങളുടെ ആന്തരികത എന്നിവ ഈ കൃതിയെ മലയാള സാഹിത്യത്തിലെ ക്ലാസിക് ആക്കുന്നു.
+                കാലം എന്ന കൃതി, മനുഷ്യനായി കടന്നുപോകുന്ന ഓരോ ഘട്ടത്തിന്റെയും അനിശ്ചിതത്വങ്ങളും ആശങ്കകളും, അതോടൊപ്പം ഉള്ള പ്രതീക്ഷകളും പ്രണയങ്ങളും അതീവ ദൃശ്യമായി വരച്ചു കാട്ടുന്നു. ഇത് വായനക്കാരനെ കാലത്തോളം നയിക്കുന്നതും, ഒരു കാലത്തേക്കുള്ള ഭാവനാപരമായ ഒരു അന്വേഷണമാക്കുന്നതുമാണ്.
+
+                പ്രശസ്ത കേന്ദ്ര സാഹിത്യ അക്കാദമി പുരസ്‌കാരം നേടിയ "കാലം" എം.ടിയുടെ സാഹിത്യ ജീവിതത്തിലെ പ്രധാന കൃതികളിലൊന്നാണ്. മനോഹരമായ ഭാഷ, ഗൗരവമേറിയ ആഖ്യാനം, കഥാപാത്രങ്ങളുടെ ആന്തരികത എന്നിവ ഈ കൃതിയെ മലയാള സാഹിത്യത്തിലെ ക്ലാസിക് ആക്കുന്നു.
 
                 എം.ടി. വാസുദേവൻ നായർ മലയാളത്തിന്റെ കഥ പറയുന്ന ശബ്ദം മത്രമല്ല, ജീവിതം പകർത്തുന്ന കണ്ണും കരുത്തുമാണ്. അതാണ് എം. ടി.യുടെ എഴുത്തിന്റെ യഥാർത്ഥ വിജയം.
 
-                ഒരു നല്ല പുസ്തകം നമുക്ക് പുതിയ കാഴ്ചപ്പാടുകൾ നൽകുന്നു. ''കാലം'' നമ്മെ നമുക്ക് തന്നെ പരിചയപ്പെടുത്തുന്നു."
+                "കാലം" എന്നത് വെറും വായനയല്ല,
+                സ്വന്തം ആത്മാവിന്റെ ദൃശ്യം കാണിക്കുന്നൊരു അഗാധ ദർപ്പണമാണ്
 
-                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">✍️ഫാത്തിമ ഫിദ. സി<br>ബി.കോം<br>രണ്ടാം വർഷം</span>
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">ഫാത്തിമ ഫിദ. സി<br>ബി.കോം<br>രണ്ടാം വർഷം</span>
+              `,
+            },
+            {
+              title: "നാലുകെട്ട്",
+              review: `
+                കേരളത്തിലെ നായർ സമുദായത്തിലെ ഒരു കൂട്ടുകുടുംബത്തെ പശ്ചാത്തലമാക്കിയാണ് 'നാലുകെട്ട്' എന്ന നോവൽ കഥ പറയുന്നത്. നായർ സമുദായത്തിലെ കൂട്ടുകുടുംബ വ്യവസ്ഥയും, മരുമക്കത്തായ സമ്പ്രദായവും, കാലാനുസൃതമായ പരിവർത്തനങ്ങളിലൂടെ, അണു കുടുംബം, എന്ന വ്യവസ്ഥയിലേക്ക് മാറ്റപ്പെടുന്നതാണ് കഥയുടെ ഉള്ളടക്കം. കേന്ദ്ര കഥാപാത്രമായ അപ്പുണ്ണിയുടെ ജീവിതം, അദ്ദേഹത്തിന്റെ വളർച്ച, പ്രണയം, എന്നിവയിലൂടെയാണ് കഥ പുരോഗമിക്കുന്നത്.
+
+                വടക്കേപ്പാട്ട് നാലുകെട്ടിലെ കാരണവരുടെ ഇളയ മകളായ പാറുക്കുട്ടി, വീട്ടുകാർ നിശ്ചയിച്ച ഇഷ്ടമില്ലാത്ത വിവാഹത്തിന് തയ്യാറാകാതെ, നാട്ടിലെ പ്രമുഖ പകിട കളിക്കാരനായ കോന്തുണി നായരുടെ കൂടെ ഇറങ്ങിപ്പോകുന്നു. അപമാന ഭാരം സഹിക്കവയ്യാതെ വടക്കേപാട്ടുകാരാൽ പുറത്താക്കപ്പെടുകയാണ് പാറുക്കുട്ടി. കേന്ദ്ര കഥാപാത്രമായ അപ്പുണ്ണിയുടെ ജനനത്തിന് മൂന്നു വർഷങ്ങൾക്ക് ശേഷം അച്ഛൻ കോന്തുണ്ണി നായർ മരണപ്പെടുന്നു. അവിടം മുതൽ പാറുക്കുട്ടിയുടെയും അപ്പുണ്ണിയുടെയും ദുരിതകാലത്തിന് തുടക്കം കുറിക്കുന്നു. അപ്പുണ്ണിയുടെ വളർച്ചയ്ക്കിടയിൽ നാലുകെട്ടിൽ താൻ അനുഭവിക്കേണ്ട സുഖജീവിതത്തെപ്പറ്റിയും, തന്റെ അച്ഛന്റെ ഘാതകനായ സെയ്താലിക്കുട്ടിയെക്കുറിച്ചും അപ്പുണ്ണി മനസ്സിലാക്കുന്നു. ഇത് പകയുടെ കനലുകൾ ആ ഇളം മനസ്സിൽ പാകുന്നു. കേട്ടു കേൾവി മാത്രമുള്ള നാലുകെട്ട്, കാണാൻ മോഹിച്ച, അപ്പുണ്ണിക്ക്, നാലുകെട്ടിലെ സർപ്പം തുള്ളൽ കാണാൻ അവസരം ലഭിക്കുന്നു. എന്നാൽ നാലുക്കെട്ടിൽ അപ്പുണ്ണിയെ കാത്തിരുന്നത് സ്വന്തക്കാരുടെ ആട്ടിയിറക്കലായിരുന്നു. ഈ വിഷമ വേളയിൽ അപ്പുണ്ണിക്ക് ആശ്വാസമായെത്തുന്നത് ശത്രുവായ സെയ്താലിക്കുട്ടിയാണ്.
+
+                അപ്പുണ്ണിയെ ഹൈസ്കൂളിലേക്ക് ചേർക്കുന്നതിനായി അച്ഛന്റെ സുഹൃത്തും, മുൻ കാര്യസ്ഥനുമായിരുന്ന തെങ്ങുമ്പോറ്റിയിൽ ശങ്കരൻ എന്നയാളുടെ സഹായം പാറുക്കുട്ടിയമ്മ തേടുന്നു. എന്നാൽ സമൂഹത്തിന്റെ കപട സദാചാരക്കണ്ണുകൾ ആ ബന്ധത്തെ വികലമാക്കി, ആ ചവർപ്പുകൾ അപ്പുണ്ണിയെ ഒരു ദുരഭിമാനിക്കുന്നു. തുടർന്ന് അപ്പുണ്ണി അമ്മയെയും, വീടും, ഉപേക്ഷിച്ചിറങ്ങുന്നു.ഈ അവസ്ഥയിൽ, തറവാട്ടിലെ അവകാശങ്ങളെ കുറിച്ച് അപ്പുണ്ണിയെ ബോധ്യപ്പെടുത്തി, സെയ്താലിക്കുട്ടി വഴികാട്ടിയാകുന്നു. ശേഷം വടക്കേപ്പാട്ട് തറവാട്ടിൽ അപ്പുണ്ണി കടന്നുചെല്ലുന്നു. ഒറ്റപ്പെടലിന്റെയും, അവഗണനകളുടെയും, വിവേചനത്തിന്റെയും നരകതുല്യമായ മൂന്നു വർഷങ്ങൾ അവിടം കടന്നുപോകുന്നു. അപ്പുണ്ണിയുടെ കൗമാര കാലത്തെ പ്രണയത്തിന്റെ പ്രതീകമായി വല്യമ്മാമയുടെ മകൾ അമ്മിണിയാകുന്നു. തറവാട്ടിലെ അംഗങ്ങളുടെ സ്വരചേർച്ചയില്ലായ്മയും, നാടുവാഴിത്തത്തിന്റെ അധഃപതനവും, തറവാടിന്റെ ഭാഗം വെക്കലിലേക്ക് നയിക്കുന്നു. മനസ്സിൽ കുളിർമയുള്ള ഓർമ്മകൾ അവശേഷിച്ച് അമ്മിണിയും ആ തറവാടിന്റെ വീട്ടിറങ്ങുന്നു.
+
+                ഫൈനൽ പരീക്ഷ ഫീസടക്കാനാവാതെ നിസ്സഹായനായ അപ്പുണ്ണിക്ക് സഹായവുമായെത്തുന്നത് പാറുക്കുട്ടിയമ്മയാണ്. ആ സഹായം സ്വീകരിക്കുമ്പോഴും അമ്മയോടുള്ള മനോഭാവത്തിൽ അപ്പുണ്ണി മാറ്റം വരുത്തിയില്ല. ഉയർന്ന മാർക്ക് ലഭിച്ച അപ്പുണ്ണിക്ക്, സെയ്താലിക്കുട്ടി വയനാട്ടിൽ ഒരു ജോലി തരപ്പെടുത്തുന്നു. ഒരിക്കൽ ചെയ്തുപോയ കയ്യബദ്ധത്തിൽ പശ്ചാത്തപിക്കുന്ന സൈതാലിക്കുട്ടിയെ, ചേർത്തുപിടിക്കാൻ അപ്പുണ്ണി മറന്നിരുന്നില്ല. വർഷങ്ങൾക്കിപ്പുറം, കാലചക്രം തിരിഞ്ഞും മറിഞ്ഞും, പൊട്ടിപ്പൊളിഞ്ഞ നാലു കെട്ടിലേക്കും, കടബാധ്യതയിൽ വലയുന്ന വല്യമ്മാമയിലേക്കും അപ്പുണ്ണിയെ എത്തിക്കുന്നു. തന്റെ മുന്നിൽ കൈകൂപ്പി നിൽക്കുന്ന വല്ല്യമ്മാമക്ക് മുന്നിൽ അപ്പുണ്ണി നാലുകെട്ടിന് വില പറയുന്നു. ഒടുവിൽ ഉള്ളിൽ ഉരുകി ദ്രവിച്ച ദുരഭിമാനത്തിന്റെ ചങ്ങലകളെ പൊട്ടിച്ചുകൊണ്ട് അപ്പുണ്ണി പാറുക്കുട്ടിയമ്മയെ നാലു കെട്ടിലേക്ക് കൊണ്ടുവരുന്നു.
+
+                1958 രചിച്ച എം ടിയുടെ ആദ്യ നോവലായ നാലുകെട്ടിലെ കഥാപാത്രങ്ങൾ ഇന്നും സമൂഹത്തിൽ ശക്തമായി ജീവിക്കുന്നു. കുടുംബത്തിന്റെ നാല് ചുവരികളിൽ എരിഞ്ഞുതീരുന്ന സ്ത്രീ ജന്മങ്ങൾ, നാടുവാഴിത്തത്തിന്റെ പ്രതീകമായ പുരുഷാധിപത്യങ്ങൾ, സ്വന്തം അമ്മയെപ്പോലും വിശ്വസിക്കാതെ, സമൂഹത്തിന്റെ ചട്ടങ്ങളെ നെഞ്ചിലേറ്റുന്ന അപ്പുണ്ണി, തുടങ്ങിയവരെല്ലാം പ്രതിനിധാനം ചെയ്യുന്നത്, നമ്മളേയൊ നമ്മളിൽ പലരേയുമാണ്!
+
+                <span style="font-family: 'Manjari', cursive; font-weight: 700; color: var(--primary-color); display: block; margin-top: 1rem;">സലീമ ഹാദിയ കുമ്പിടി<br>ബി എ ഇംഗ്ലീഷ് രണ്ടാം വർഷം</span>
               `,
             },
           ],
@@ -562,7 +640,7 @@
               review: `
                 "കളിക്കൊട്ടിലിൽ" എന്ന കൃതി ബാല്യത്തിന്റെ അഹംരഹിതമായ ലോകത്തേക്കുള്ള കാവ്യാത്മകമായ തിരിഞ്ഞുനോട്ടമാണ്. ഈ കവിതാസമാഹാരം പ്രാഥമികമായി കുട്ടികൾക്കായുള്ളതായിരുന്നെങ്കിലും, അതിനുള്ളിൽ ഒരുപാട് തത്വചിന്തകളും മാനസിക ആഴങ്ങളുമുണ്ട്. കവി കുട്ടികളുടെ കളികൾ, ചിന്താശൈലി, മനസ്സിന്റെ തെളിച്ചം എന്നിവയെ സൂക്ഷ്മമായി നിരീക്ഷിച്ച് അതിനുള്ളിൽ ജീവിതത്തിന്റെ മഹത്തായ സത്യങ്ങൾ തേടുന്നു.
 
-                "കളിക്കൊട്ടിൽ" എന്നത് ഇവിടെ ബാല്യത്തിന്റെ പ്രതീകമായി ഉപയോഗിക്കപ്പെടുന്നു — തൊട്ടിലിനുള്ളിൽ കളിക്കുന്ന കുട്ടി, ലോകത്തെ അറിയാത്ത നിരപരാധിത്വത്തിന്റെ പ്രതീകമാണ്. എന്നാൽ കവി അതിലൂടെ ഉദ്ദേശിക്കുന്നത് കൂടുതൽ ആഴമുള്ളതും ദാർശനികവുമായതുമാണ്. ജീവിതം ഒടുവിൽ ഒരു വലിയ കളിക്കൊട്ടിൽ തന്നെയാണെന്ന് അദ്ദേഹം സൂചിപ്പിക്കുന്നു — ഓരോ മനുഷ്യനും ആ 'കളിയിലൊരു കുട്ടിയാണ്', അതിനുള്ളിൽ വേദനയും സന്തോഷവും ഒരുപോലെ അടങ്ങിയിരിക്കുന്നു. ബാല്യത്തെക്കുറിച്ചുള്ള ഭാവനയിലൂടെ കവി ജീവിതത്തെകുറിച്ചുള്ള വലിയൊരു സന്ദേശമാണ് നൽകുന്നത്.
+                "കളിക്കൊട്ടിൽ" എന്നത് ഇവിടെ ബാല്യത്തിന്റെ പ്രതീകമായി ഉപയോഗിക്കപ്പെടുന്നു — തൊട്ടിലിനുള്ളിൽ കളിക്കുന്ന കുട്ടി, ലോകത്തെ അറിയാത്ത നിരപരാധിത്വത്തിന്റെ പ്രതീകമാണ്. എന്നാൽ കവി അതിലൂടെ ഉദ്ദേശിക്കുന്നത് കൂടുതൽ ആഴമുള്ളതും ദാർശനികവുമായതുമാണ്. ജീവിതം ഒടുവിൽ ഒരു വലിയ കളിക്കൊട്ടിൽ തന്നെയാണെന്ന് അദ്ദേഹം സൂചിപ്പിക്കുന്നു — ഓരോ മനുഷ്യനും ആ 'കളിയിലൊരു കുട്ടിയാണ്', അതിനുള്ളിൽ വേദനയും സന്തോഷവും ഒരുപോലെ അടങ്ങിരിക്കുന്നു. ബാല്യത്തെക്കുറിച്ചുള്ള ഭാവനയിലൂടെ കവി ജീവിതത്തെകുറിച്ചുള്ള വലിയൊരു സന്ദേശമാണ് നൽകുന്നത്.
 
                 നമുക്കുള്ളിലെ കുട്ടിയെ തിരിച്ചറിയാനും അതിന്റെ നിർമ്മലതയെ മാനിക്കാനുമാണ്. സമൂഹം വളരുന്നതോടെ നഷ്ടപ്പെടുന്ന മാനവികതയും കരുണയും തിരിച്ചുപിടിക്കേണ്ടതിന്റെ ആവശ്യകത കവി ചൂണ്ടിക്കാട്ടുന്നു. ഭാഷയുടെ ലാളിത്യത്തിലൂടെ ഗൗരവപൂർണമായ സന്ദേശങ്ങൾ അക്കിത്തം അതുല്യനായിരുന്നുവെന്ന് ഈ കൃതി വീണ്ടും തെളിയിക്കുന്നു.
 
@@ -603,7 +681,7 @@
 
                 തൻ്റെ "മനസാക്ഷി" ശ്രദ്ധിക്കുന്ന ഒരു വ്യക്തിയെ കവിത വിവരിക്കുന്നു. പൂക്കൾ യഥാർത്ഥ പൂക്കളല്ല മനസാക്ഷിയുടെ പൂക്കൾ, നീതിയും ദയയും ഉള്ള ഒരു വ്യക്തിയിൽ വളരുന്ന നന്മയെയും ധാർമ്മിക ശക്തിയെയും പ്രതിനിധീകരിക്കുന്നു. ആധുനിക ലോകത്ത് ആളുകൾ അവരുടെ ഉള്ളിലെ സത്യം മറക്കുകയാണെന്ന് അക്കിത്തം സൂചിപ്പിക്കുന്നു. അവരുടെ മനസ്സാക്ഷിയുമായി വീണ്ടും ബന്ധപ്പെടാനും മറ്റുള്ളവരെ പരിപാലിക്കാനും സത്യസന്ധത പുലർത്താനും അദ്ദേഹം വായനക്കാരനെ പ്രേരിപ്പിക്കുന്നു.
 
-                അധികാരത്തിനും പണത്തിനും പ്രശസ്തിക്കും വേണ്ടിയുള്ള ഓട്ടത്തിൽ നമ്മുടെ പോലുള്ള ആളുകൾ പലപ്പോഴും മനസ്സാക്ഷിയെ അവഗണിക്കുന്ന ഇന്നത്തെ സമൂഹത്തിൽ ഈ കവിത വളരെ പ്രസക്തമാണ്. നമ്മുടെ മനസ്സാക്ഷിയെ ശ്രദ്ധിക്കുന്നത് മികച്ച മനുഷ്യരാകാൻ നമ്മെ സഹായിക്കുമെന്ന് അക്കിത്തം പഠിപ്പിക്കുന്നു. നമ്മുടെ പ്രവർത്തനങ്ങൾ സത്യത്താലും സ്നേഹത്താലും നയിക്കപ്പെടുമ്പോൾ, നമ്മുടെ ആന്തരിക ലോകം പൂന്തോട്ടം പോലെ മനോഹരമാകുമെന്ന് അദ്ദേഹം നമ്മോട് പറയുന്നു.
+                അധികാരത്തിനും പണത്തിനും പ്രശസ്തിക്കും വേണ്ടിയുള്ള ഓട്ടത്തിൽ നമ്മുടെ പോലുള്ള ആളുകൾ പലപ്പോഴും മനസ്സാക്ഷിയെ അവഗണിക്കുന്ന ഇന്നത്തെ സമൂഹത്തിൽ ഈ കവിത വളരെ പ്രസക്തമാണ്. നമ്മുടെ മനസ്സാക്ഷിയെ ശ്രദ്ധിക്കുന്നത് മികച്ച മനുഷ്യരാകാൻ നമ്മെ സഹായിക്കുമെന്ന് അക്കിത്തം പഠിപ്പിക്കുന്നു. നമ്മുടെ പ്രവർത്തനങ്ങൾ സത്യത്താലും സ്നേഹത്താലും നയിക്കപ്പെടുമ്പോൾ, നമ്മുടെ ആന്തരിക ലോകം പൂന്തോട്ടം പോലെ മനോരമാകുമെന്ന് അദ്ദേഹം നമ്മോട് പറയുന്നു.
 
                 കവിത വൈകാരികവും ചിന്തോദ്ദീപകവും ആത്മീയവുമാണ്. ചെറിയ കാരുണ്യപ്രവൃത്തികൾ പോലും ഒരാളുടെ ഹൃദയത്തിൻ്റെ പൂന്തോട്ടത്തിൽ വിരിയുന്ന പൂക്കൾ പോലെയാണെന്നതിനെക്കുറിച്ചാണ് ഇത് പറയുന്നത്.
 
@@ -637,26 +715,26 @@
       );
       revealElements.forEach((el) => observer.observe(el));
 
-      // --- Modal Logic ---
-      const modal = document.getElementById("writer-modal");
-      const closeModalBtn = document.getElementById("modal-close");
+      // --- Modal Logic (Writer Details) ---
+      const writerModal = document.getElementById("writer-modal");
+      const writerCloseModalBtn = document.getElementById("modal-close");
       const mtCard = document.getElementById("writer-mt");
       const akkithamCard = document.getElementById("writer-akkitham");
 
-      const modalName = document.getElementById("modal-name");
-      const modalImg = document.getElementById("modal-img");
-      const modalBio = document.getElementById("modal-bio");
-      const modalWorks = document.getElementById("modal-works");
+      const writerModalName = document.getElementById("modal-name");
+      const writerModalImg = document.getElementById("modal-img");
+      const writerModalBio = document.getElementById("modal-bio");
+      const writerModalWorks = document.getElementById("modal-works");
 
-      const openModal = (writerKey) => {
+      const openWriterModal = (writerKey) => {
         const data = writersData[writerKey];
         if (!data) return;
 
-        modalName.textContent = data.name;
-        modalImg.src = data.image;
-        modalBio.textContent = data.bio;
+        writerModalName.textContent = data.name;
+        writerModalImg.src = data.image;
+        writerModalBio.textContent = data.bio;
 
-        modalWorks.innerHTML = ""; // Clear previous works
+        writerModalWorks.innerHTML = ""; // Clear previous works
         data.works.forEach((work) => {
           const workElement = document.createElement("div");
           workElement.className =
@@ -670,40 +748,38 @@
                           <p class="p-4 text-md leading-relaxed">${work.review}</p>
                       </div>
                   `;
-          modalWorks.appendChild(workElement);
+          writerModalWorks.appendChild(workElement);
         });
 
-        modal.classList.remove("opacity-0", "pointer-events-none");
-        modal.classList.add("open");
+        writerModal.classList.remove("opacity-0", "pointer-events-none");
+        writerModal.classList.add("open");
         document.body.style.overflow = "hidden"; // Prevent background scroll
       };
 
-      const closeModal = () => {
-        modal.classList.add("opacity-0", "pointer-events-none");
-        modal.classList.remove("open");
+      const closeWriterModal = () => {
+        writerModal.classList.add("opacity-0", "pointer-events-none");
+        writerModal.classList.remove("open");
         document.body.style.overflow = "auto";
       };
 
-      mtCard.addEventListener("click", () => openModal("mt"));
-      akkithamCard.addEventListener("click", () => openModal("akkitham"));
-      closeModalBtn.addEventListener("click", closeModal);
+      mtCard.addEventListener("click", () => openWriterModal("mt"));
+      akkithamCard.addEventListener("click", () => openWriterModal("akkitham"));
+      writerCloseModalBtn.addEventListener("click", closeWriterModal);
 
-      // Close modal on outside click
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          closeModal();
+      // Close writer modal on outside click
+      writerModal.addEventListener("click", (e) => {
+        if (e.target === writerModal) {
+          closeWriterModal();
         }
       });
-
-      // Close modal with Escape key
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("open")) {
-          closeModal();
+        if (e.key === "Escape" && writerModal.classList.contains("open")) {
+          closeWriterModal();
         }
       });
 
       // --- Accordion Logic for Works ---
-      modalWorks.addEventListener("click", function (e) {
+      writerModalWorks.addEventListener("click", function (e) {
         const header = e.target.closest(".accordion-header");
         if (!header) return;
 
@@ -727,6 +803,42 @@
         } else {
           content.style.maxHeight = content.scrollHeight + "px";
           arrow.style.transform = "rotate(180deg)";
+        }
+      });
+
+      // --- Poster Modal Logic ---
+      const posterModal = document.getElementById("poster-modal");
+      const posterModalCloseBtn = document.getElementById("poster-modal-close");
+
+      const showPosterModal = () => {
+        posterModal.classList.remove("opacity-0", "pointer-events-none");
+        posterModal.classList.add("open");
+        posterModal.querySelector(".modal-content").classList.remove("scale-90");
+        document.body.style.overflow = "hidden";
+      };
+
+      const hidePosterModal = () => {
+        posterModal.classList.add("opacity-0", "pointer-events-none");
+        posterModal.classList.remove("open");
+        posterModal.querySelector(".modal-content").classList.add("scale-90");
+        document.body.style.overflow = "auto";
+        // Activate hero animations after poster is closed
+        document.querySelector(".hero-section").classList.add("hero-active");
+      };
+
+      // Show poster modal on page load
+      window.addEventListener("load", showPosterModal);
+
+      // Close poster modal
+      posterModalCloseBtn.addEventListener("click", hidePosterModal);
+      posterModal.addEventListener("click", (e) => {
+        if (e.target === posterModal) {
+          hidePosterModal();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && posterModal.classList.contains("open")) {
+          hidePosterModal();
         }
       });
     </script>
