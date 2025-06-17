@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Inter:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Montserrat:wght@800&display=swap"
       rel="stylesheet"
     />
 
@@ -51,6 +51,9 @@
       h6 {
         font-family: "Manjari", sans-serif;
         font-weight: 700;
+      }
+      .font-montserrat {
+        font-family: "Montserrat", sans-serif;
       }
 
       /* Traditional Kerala Mural Art inspired colors */
@@ -447,24 +450,13 @@
     </main>
 
     <!-- Section 06 & 07: Footer -->
-    <footer class="footer-animated text-white py-12">
+    <footer class="footer-animated text-white py-8">
       <div class="container mx-auto text-center px-6">
-        <h3 class="text-6xl text-[var(--accent-color)] mb-4 font-bold">നന്ദി</h3>
-        <p class="mb-6 max-w-2xl mx-auto text-xl leading-relaxed">
-          ജൂൺ 19 വായനാ ദിനത്തിൽ അയ്യൂബി ഗേൾസ് വില്ലേജിനൊപ്പം ഈ രചനയുടെ ലോകത്ത്
-          ഒന്നിച്ചു നടന്നതിന് ഹൃദയം നിറഞ്ഞ നന്ദി! നിങ്ങളുടെ വിലയേറിയ വായനയ്ക്കും
-          പിന്തുണയ്ക്കും ഞങ്ങൾ കടപ്പെട്ടിരിക്കുന്നു. വീണ്ടും കാണാം!
-        </p>
-        <p class="mb-6 max-w-2xl mx-auto text-lg leading-relaxed">
-          ഈ വെർച്വൽ പുസ്തക പ്രദർശനം കുമരനെല്ലൂരിന്റെ സാഹിത്യ പാരമ്പര്യം
-          അവിടുത്തെ പ്രതിഭകളെയും ആദരിക്കുന്നതിനുള്ള ഞങ്ങളുടെ എളിയ ശ്രമമാണ്.
-          വായനയുടെ ലോകത്തേക്ക് കൂടുതൽ പേരെ ആകർഷിക്കാനും അറിവ് പങ്കുവെക്കാനും
-          ഇത് സഹായകമാകുമെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു.
-        </p>
-        <div class="border-t border-[var(--accent-color)] w-1/4 mx-auto my-6"></div>
-        <p class="text-3xl md:text-4xl font-extrabold text-[var(--accent-color)] tracking-wide">Ayyoobi Girls Village</p>
-        <p class="text-sm mt-2">PARAKKULAM, PADINJARANGADI, PALAKKAD, KERALA-679552</p>
-        <p class="text-sm mt-2">+91 9400 060 410, 7403 382866</p>
+        <div class="flex justify-center space-x-8 mb-6">
+            <a href="thanks.html" class="text-lg font-bold hover:text-[var(--accent-color)] hover:scale-110 transition-all duration-300">നന്ദി</a>
+            <a href="address.html" class="text-lg font-bold hover:text-[var(--accent-color)] hover:scale-110 transition-all duration-300">വിലാസം</a>
+        </div>
+        <p class="text-sm">&copy; 2024 <span class="font-montserrat">Ayyoobi Girls Village</span>. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</p>
       </div>
     </footer>
 
@@ -833,8 +825,15 @@
       // --- Poster Modal Logic ---
       const posterModal = document.getElementById("poster-modal");
       const posterModalCloseBtn = document.getElementById("poster-modal-close");
+      const heroSection = document.querySelector(".hero-section");
 
       const showPosterModal = () => {
+        // Check if the poster has been shown in this session
+        if (sessionStorage.getItem("posterShown")) {
+          heroSection.classList.add("hero-active");
+          return;
+        }
+
         posterModal.classList.remove("opacity-0", "pointer-events-none");
         posterModal.classList.add("open");
         posterModal.querySelector(".modal-content").classList.remove("scale-90");
@@ -847,7 +846,9 @@
         posterModal.querySelector(".modal-content").classList.add("scale-90");
         document.body.style.overflow = "auto";
         // Activate hero animations after poster is closed
-        document.querySelector(".hero-section").classList.add("hero-active");
+        heroSection.classList.add("hero-active");
+        // Set a session storage item to remember that the poster has been shown
+        sessionStorage.setItem("posterShown", "true");
       };
 
       // Show poster modal on DOMContentLoaded for faster perceived load time

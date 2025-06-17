@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>വിലാസം - കുമരനെല്ലൂരിനെ വായിക്കുന്നു</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google Fonts: Manjari for Malayalam & Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Montserrat:wght@800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Styles -->
+    <style>
+      body {
+        font-family: "Manjari", sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        background-image: linear-gradient(
+            135deg,
+            rgba(192, 107, 62, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            225deg,
+            rgba(192, 107, 62, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            315deg,
+            rgba(192, 107, 62, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(45deg, rgba(192, 107, 62, 0.05) 25%, transparent 25%);
+        background-position: -40px 0, -40px 0, 0 0, 0 0;
+        background-size: 80px 80px;
+        overflow-wrap: break-word;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Manjari", sans-serif;
+        font-weight: 700;
+      }
+      .font-montserrat {
+        font-family: "Montserrat", sans-serif;
+      }
+      :root {
+        --primary-color: #c06b3e;
+        --secondary-color: #4a5d23;
+        --accent-color: #b48811;
+        --bg-color: #fffcf5;
+        --text-color: #4c3d3d;
+      }
+      .footer-animated {
+        background-color: var(--secondary-color);
+        background-image: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            225deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            315deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%);
+        background-position: -40px 0, -40px 0, 0 0, 0 0;
+        background-size: 80px 80px;
+      }
+    </style>
+  </head>
+  <body class="bg-[var(--bg-color)] text-[var(--text-color)]">
+    <main class="flex items-center justify-center h-dvh">
+        <section class="text-center max-w-4xl mx-auto p-6">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[var(--accent-color)] tracking-wide font-montserrat">Ayyoobi Girls Village</h2>
+            <p class="text-lg mt-4">PARAKKULAM, PADINJARANGADI, PALAKKAD, KERALA-679552</p>
+            <p class="text-lg mt-2">+91 9400 060 410, 7403 382866</p>
+            <div class="mt-8">
+                <a href="index.html" class="inline-block bg-[var(--primary-color)] text-white font-bold py-3 px-8 rounded-lg hover:bg-[var(--accent-color)] hover:scale-105 transition-all duration-300 text-lg">
+                  പ്രധാന പേജിലേക്ക് മടങ്ങുക
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer-animated text-white py-6 fixed bottom-0 w-full">
+        <div class="container mx-auto text-center px-6">
+            <p class="text-sm">&copy; 2024 <span class="font-montserrat">Ayyoobi Girls Village</span>. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</p>
+        </div>
+    </footer>
+  </body>
+</html>
